@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import yaml from 'js-yaml';
 
 type Language = 'en' | 'fr' | 'zh';
 
@@ -16,17 +17,32 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
   const getTranslations = async (filePath: string, defaultTranslations: { [key: string]: string }) => {
+    console.log(`Attempting to load translations for language: ${language} from file: ${filePath}.yaml`);
+    
     try {
-      // 根据传入的 filePath 和当前语言动态构建路径，例如 '../components/NavBar.json'
-      const translationModule = await import(`../${filePath}.json`);
-      const translations = translationModule.default[language];
-      return { ...defaultTranslations, ...translations };
+      // 使用 fetch 获取 YAML 文件内容
+      // const response = await fetch(`/locales/${filePath}.yaml`);
+      // const response = await fetch(`/localesl/components/NavBar.yaml`);
+      const response = await fetch(`/localesl/${filePath}.yaml`);
+      const yamlText = await response.text();
+      // console.log(`YAML file loaded as string:`, yamlText);
+
+      // 使用 js-yaml 解析 YAML 文件，保留格式
+      const translations = yaml.load(yamlText) as { [key: string]: { [key: string]: string } };
+      // console.log(`Parsed translations object:`, translations);
+
+      if (translations && translations[language]) {
+        console.log(`Translations loaded for ${language}:`, translations[language]);
+        return { ...defaultTranslations, ...translations[language] };
+      } else {
+        console.warn(`Translations for ${language} not found in the YAML file. Falling back to default translations.`);
+        return defaultTranslations;
+      }
     } catch (error) {
-      console.warn(`Translation file at ${filePath}.json for ${language} not found. Falling back to default translations. Error:`, error);
+      console.warn(`Error loading translation file at ${filePath}.yaml for ${language}. Falling back to default translations.`, error);
       return defaultTranslations;
     }
   };
-  
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, getTranslations }}>

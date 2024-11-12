@@ -1,3 +1,5 @@
+//src/components/NavBar.tsx
+
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
@@ -26,7 +28,7 @@ const NavBar: React.FC = () => {
   // 加载 NavBar 的翻译文件
   useEffect(() => {
     const loadTranslations = async () => {
-      const loadedTranslations = await getTranslations('components/NavBar', defaultTranslations);
+      const loadedTranslations = await getTranslations('/components/NavBar', defaultTranslations);
       setTranslations(loadedTranslations);
     };
     loadTranslations();

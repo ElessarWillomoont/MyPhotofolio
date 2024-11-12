@@ -1,9 +1,14 @@
+/* MainPage.module.css */
 .mainContainer {
-    width: 100vw;  /* 占满整个视口宽度 */
-    height: 100vh; /* 占满整个视口高度 */
-    background-image: url('../public/images/background.webp'); /* 引用背景图片 */
-    background-size: cover; /* 保持背景图像比例，同时填满容器 */
-    background-position: center; /* 居中显示 */
-    background-repeat: no-repeat; /* 不重复背景图片 */
-  }
-  
+  width: 100vw;  /* 占满整个视口宽度 */
+  height: 100vh; /* 占满整个视口高度 */
+  background-image: url('../public/images/background.webp'); /* 引用背景图片 */
+  background-size: cover; /* 保持背景图像比例，同时填满容器 */
+  background-position: center; /* 居中显示 */
+  background-repeat: no-repeat; /* 不重复背景图片 */
+}
+
+.preText {
+  white-space: pre-wrap; /* 保持换行 */
+  word-wrap: break-word; /* 防止超出容器宽度 */
+}

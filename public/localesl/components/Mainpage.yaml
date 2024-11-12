@@ -1,0 +1,20 @@
+en:
+  greeting: "Hi, This is Main Page"
+  message: |
+    Hello World!
+    This is a multiline
+    message for testing.
+
+fr:
+  greeting: "Salut, ceci est la page principale"
+  message: |
+    Bonjour tout le monde !
+    Ceci est un message
+    multi-lignes pour les tests.
+
+zh:
+  greeting: "嗨，这是主页"
+  message: |
+    你好，世界！
+    这是一个用于测试的
+    多行消息。
