@@ -1,0 +1,59 @@
+/* 固定导航栏样式 */
+.fixedNav {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+  
+  /* 链接样式 */
+  .fixedNav .nav-link {
+    color: #fff !important;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+  }
+  .fixedNav .nav-link:hover {
+    color: #ddd !important;
+  }
+  
+  /* 窄屏汉堡菜单按钮样式 */
+  .hamburgerButton {
+    position: fixed;
+    top: 20px;
+    right: 0px; /* 紧贴右侧 */
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    z-index: 1050; /* 确保按钮显示在遮罩层之上 */
+    transition: right 0.3s ease, background-color 0.3s ease; /* 添加背景颜色过渡效果 */
+  }
+  
+  .hamburgerButton:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  /* 当 Offcanvas 打开时，汉堡按钮仍然保持亮色 */
+  .hamburgerButtonShift {
+    right: 250px; /* 将按钮移动到 Offcanvas 左侧 */
+    background-color: rgba(0, 0, 0, 0.7); /* 保持亮色 */
+  }
+  /* 自定义 Offcanvas 样式 */
+.customOffcanvas {
+    background-color: rgba(0, 0, 0, 0.8); /* 黑色半透明背景 */
+    color: #fff; /* 设置文本颜色为白色 */
+  }
+  
+  .customOffcanvas .nav-link {
+    color: #fff !important; /* 链接文字颜色 */
+  }
+  .customOffcanvas .nav-link:hover {
+    color: #ddd !important; /* 悬停效果 */
+  }
