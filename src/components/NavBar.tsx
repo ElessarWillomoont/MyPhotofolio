@@ -1,15 +1,36 @@
-// src/components/NavBar.tsx
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Navbar, Offcanvas, Nav } from 'react-bootstrap';
 import styles from './NavBar.module.css';
 import { useAppLanguage } from '../context/LanguageContext';
 
 const NavBar: React.FC = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const { language, setLanguage, translations } = useAppLanguage(); // 从 useAppLanguage 获取语言和翻译
+  const { language, setLanguage, getTranslations } = useAppLanguage();
   const offcanvasWidth = 250;
+
+  // 默认翻译内容
+  // 使用 useMemo 包装默认翻译内容，以避免在每次渲染时重新创建
+  const defaultTranslations = useMemo(() => ({
+    home: "Home",
+    about: "About",
+    services: "Services",
+    contact: "Contact",
+    language: "Language"
+  }), []);
+
+  // 初始化翻译内容状态
+  const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+
+  // 加载 NavBar 的翻译文件
+  useEffect(() => {
+    const loadTranslations = async () => {
+      const loadedTranslations = await getTranslations('components/NavBar', defaultTranslations);
+      setTranslations(loadedTranslations);
+    };
+    loadTranslations();
+  }, [defaultTranslations, getTranslations, language]);
 
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 

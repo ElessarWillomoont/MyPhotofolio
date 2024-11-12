@@ -1,56 +1,45 @@
-// src/context/LanguageContext.tsx
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import en from '../public/locales/en/common.json';
-import fr from '../public/locales/fr/common.json';
-import zh from '../public/locales/zh/common.json';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// 定义语言类型
 type Language = 'en' | 'fr' | 'zh';
 
 interface LanguageContextProps {
   language: Language;
   setLanguage: (lang: Language) => void;
-  translations: { [key: string]: string };
+  getTranslations: (filePath: string, defaultTranslations: { [key: string]: string }) => Promise<{ [key: string]: string }>;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
-  const [translations, setTranslations] = useState<{ [key: string]: string }>(en);
 
-  // 根据当前语言加载翻译内容
-  useEffect(() => {
-    const loadTranslations = () => {
-      switch (language) {
-        case 'fr':
-          setTranslations(fr);
-          break;
-        case 'zh':
-          setTranslations(zh);
-          break;
-        default:
-          setTranslations(en);
-          break;
-      }
-    };
-    loadTranslations();
-  }, [language]); // 当 language 改变时重新加载 translations
+  const getTranslations = async (filePath: string, defaultTranslations: { [key: string]: string }) => {
+    try {
+      // 根据传入的 filePath 和当前语言动态构建路径，例如 '../components/NavBar.json'
+      const translationModule = await import(`../${filePath}.json`);
+      const translations = translationModule.default[language];
+      return { ...defaultTranslations, ...translations };
+    } catch (error) {
+      console.warn(`Translation file at ${filePath}.json for ${language} not found. Falling back to default translations. Error:`, error);
+      return defaultTranslations;
+    }
+  };
+  
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, translations }}>
+    <LanguageContext.Provider value={{ language, setLanguage, getTranslations }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
 // 自定义 hook，用于方便访问语言上下文
-export const useAppLanguage  = () => {
+export const useAppLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error('useAppLanguage must be used within a LanguageProvider');
   }
   return context;
 };
