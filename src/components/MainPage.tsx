@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './MainPage.module.css'; // 引入CSS模块
 
+//here are some change
+
 const MainPage: React.FC = () => {
   return (
     <div className={styles.mainContainer}>
