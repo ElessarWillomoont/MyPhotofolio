@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useAppLanguage } from '../context/LanguageContext'; // 导入 useAppLanguage
 import styles from './MainPage.module.css'; // 引入CSS模块
 
@@ -8,10 +8,11 @@ const MainPage: React.FC = () => {
   const { language, getTranslations } = useAppLanguage();
   
   // 默认翻译内容
-  const defaultTranslations = {
+
+  const defaultTranslations = useMemo(() => ({
     greeting: "Hi, This is Main Page",
     message: "Hello World!"
-  };
+  }), []);
 
   // 初始化翻译内容状态
   const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
