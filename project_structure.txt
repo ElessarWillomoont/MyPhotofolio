@@ -23,7 +23,7 @@
           project-m.yaml
           project-n.yaml
           project-o.yaml
-          project-p copy.yaml
+          project-p.yaml
           project-q.yaml
   [src]
     [app]
@@ -100,6 +100,7 @@
       NavBar.json
       NavBar.module.css
       NavBar.tsx
+      ProjectTree copy.tsx
       ProjectTree.module.css
       ProjectTree.tsx
     [context]
@@ -337,7 +338,7 @@
               title: "项目B"
               description: "项目B的描述..."
             --- End of File ---
-          project-p copy.yaml
+          project-p.yaml
             --- File Content ---
             en:
               title: "Project B"
@@ -1552,7 +1553,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-color: azure; /* 默认背景颜色为天蓝色 */
+            background-color: powderblue; /* 默认背景颜色为天蓝色 */
             z-index: -1; /* 确保背景在所有内容的后面 */
           }
           
@@ -1975,71 +1976,7 @@
         
         export default NavBar;
         --- End of File ---
-      ProjectTree.module.css
-        --- File Content ---
-        .projectTreeWrapper {
-            display: flex;
-            justify-content: center; /* 确保整个网格容器水平居中 */
-            padding: 16px;
-          }
-          
-          .projectTree {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 16px;
-            width: 66%; /* 默认占中间 66% */
-            max-width: 1000px; /* 设置最大宽度以避免过度扩展 */
-            margin: 0 auto; /* 确保网格居中 */
-          }
-          
-          @media (max-width: 768px) {
-            .projectTree {
-              width: 80%; /* 在小屏幕上减少两侧留白 */
-            }
-          }
-          
-          @media (max-width: 480px) {
-            .projectTree {
-              width: 100%; /* 在非常小的屏幕上占满整个视口 */
-              grid-template-columns: 1fr; /* 强制单列布局 */
-            }
-          }
-          
-          .projectCard {
-            position: relative;
-            cursor: pointer;
-            aspect-ratio: 1 / 1.3;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-          
-          .projectCard:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          }
-          
-          .projectImage {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-          
-          .projectName {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 8px;
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-          }
-          
-        --- End of File ---
-      ProjectTree.tsx
+      ProjectTree copy.tsx
         --- File Content ---
         "use client";
         
@@ -2054,6 +1991,7 @@
         import projectCImage from "../public/images/project_header/project-c.png";
         // 从 D 到 Q 如果没有图片，用 defaultImage 替代
         import defaultImage from "../public/images/project_header/working.webp";
+        import React from "react";
         
         // 创建一个映射表，将项目名映射到对应的 StaticImageData，未定义的项目使用默认图片
         const projectImages: { [key: string]: StaticImageData } = {
@@ -2098,46 +2036,303 @@
           { name: "project-q", displayName: "Project Q" },
         ];
         
-        
         interface ProjectTreeProps {
-          onHoverBackgroundChange: (image: string | null) => void; // 背景更新回调
+            onHoverBackgroundChange: (image: string | null) => void;
         }
         
         const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) => {
-          const handleMouseEnter = (projectName: string) => {
-            const image = projectImages[projectName]?.src || null;
-            onHoverBackgroundChange(image); // 通知父组件更新背景
-          };
+            const calculateColumns = (): number => {
+                if (typeof window !== "undefined") {
+                    const width = window.innerWidth;
+                    if (width <= 480) return 1;
+                    if (width <= 768) return 2;
+                    return Math.min(4, Math.floor(width / 300));
+                }
+                return 3; // Default for SSR
+            };
         
-          const handleMouseLeave = () => {
-            onHoverBackgroundChange(null); // 清空背景
-          };
+            const [columns] = React.useState<number>(calculateColumns()); // 确保只计算一次列数
+            const [randomLayout] = React.useState(() => generateRandomLayout(columns)); // 确保随机排布只生成一次
         
-          return (
-            <div className={styles.projectTree}>
-              {projects.map((project) => (
-                <div
-                  key={project.name}
-                  className={styles.projectCard}
-                  onMouseEnter={() => handleMouseEnter(project.name)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Image
-                    src={projectImages[project.name] || defaultImage}
-                    alt={project.displayName}
-                    className={styles.projectImage}
-                    width={300}
-                    height={300}
-                  />
-                  <span className={styles.projectName}>{project.displayName}</span>
-                </div>
-              ))}
-            </div>
-          );
+            function generateRandomLayout(columns: number) {
+                const rows: React.ReactNode[] = [];
+                const itemsPerRow = columns;
+                let index = 0;
+        
+                while (index < projects.length) {
+                    const rowItems = [];
+                    const spaces = Math.floor(columns / 2); // 每行随机空格数量
+                    const spaceIndices = Array.from({ length: spaces }, () => Math.floor(Math.random() * columns));
+        
+                    for (let i = 0; i < itemsPerRow; i++) {
+                        if (spaceIndices.includes(i) && index < projects.length + spaces) {
+                            rowItems.push(<div key={`space-${index}-${i}`} className={styles.spaceFiller}></div>);
+                        } else if (index < projects.length) {
+                            const project = projects[index++];
+                            rowItems.push(
+                                <div
+                                    key={project.name}
+                                    className={styles.projectCard}
+                                    onMouseEnter={() =>
+                                        onHoverBackgroundChange(projectImages[project.name]?.src || null)
+                                    }
+                                    onMouseLeave={() => onHoverBackgroundChange(null)}
+                                >
+                                    <Image
+                                        src={projectImages[project.name] || defaultImage}
+                                        alt={project.displayName}
+                                        className={styles.projectImage}
+                                        width={300}
+                                        height={300}
+                                    />
+                                    <span className={styles.projectName}>{project.displayName}</span>
+                                </div>
+                            );
+                        }
+                    }
+        
+                    rows.push(
+                        <div key={`row-${rows.length}`} className={styles.projectTreeRow}>
+                            {rowItems}
+                        </div>
+                    );
+                }
+        
+                return rows;
+            }
+        
+            return <div className={styles.projectTreeWrapper}>{randomLayout}</div>;
         };
         
         export default ProjectTree;
+        --- End of File ---
+      ProjectTree.module.css
+        --- File Content ---
+        .projectTreeWrapper {
+            display: flex;
+            flex-direction: column; /* 支持垂直布局 */
+            justify-content: center; /* 确保网格容器水平居中 */
+            align-items: center; /* 确保网格内容垂直居中 */
+            padding: 16px;
+        }
         
+        .projectTreeRow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            width: 66%; /* 默认占中间 66% */
+            max-width: 1000px; /* 设置最大宽度以避免过度扩展 */
+            margin: 0 auto; /* 确保网格居中 */
+        }
+        
+        @media (max-width: 768px) {
+            .projectTreeRow {
+                width: 80%; /* 在小屏幕上减少两侧留白 */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .projectTreeRow {
+                width: 100%; /* 在非常小的屏幕上占满整个视口 */
+                grid-template-columns: 1fr; /* 强制单列布局 */
+            }
+        }
+        
+        .projectCard {
+            position: relative;
+            cursor: pointer;
+            aspect-ratio: 1 / 1.3;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .projectCard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .projectImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .projectName {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .spaceFiller {
+            visibility: hidden; /* 保留空间但不显示内容 */
+        }
+        --- End of File ---
+      ProjectTree.tsx
+        --- File Content ---
+        "use client";
+        
+        import React, { useEffect, useState } from "react";
+        import Image, { StaticImageData } from "next/image";
+        import styles from "./ProjectTree.module.css";
+        import { useAppLanguage } from "../context/LanguageContext";
+        
+        // 静态导入项目图片
+        import projectAImage from "../public/images/project_header/project-a.png";
+        import projectBImage from "../public/images/project_header/project-b.png";
+        import projectCImage from "../public/images/project_header/project-c.png";
+        import defaultImage from "../public/images/project_header/working.webp";
+        
+        // 映射项目图片
+        const projectImages: { [key: string]: StaticImageData } = {
+          "project-a": projectAImage,
+          "project-b": projectBImage,
+          "project-c": projectCImage,
+          "project-d": defaultImage,
+          "project-e": defaultImage,
+          "project-f": defaultImage,
+          "project-g": defaultImage,
+          "project-h": defaultImage,
+          "project-i": defaultImage,
+          "project-j": defaultImage,
+          "project-k": defaultImage,
+          "project-l": defaultImage,
+          "project-m": defaultImage,
+          "project-n": defaultImage,
+          "project-o": defaultImage,
+          "project-p": defaultImage,
+          "project-q": defaultImage,
+        };
+        
+        // 扩展项目列表
+        const projects = [
+          { name: "project-a" },
+          { name: "project-b" },
+          { name: "project-c" },
+          { name: "project-d" },
+          { name: "project-e" },
+          { name: "project-f" },
+          { name: "project-g" },
+          { name: "project-h" },
+          { name: "project-i" },
+          { name: "project-j" },
+          { name: "project-k" },
+          { name: "project-l" },
+          { name: "project-m" },
+          { name: "project-n" },
+          { name: "project-o" },
+          { name: "project-p" },
+          { name: "project-q" },
+        ];
+        
+        interface ProjectTreeProps {
+          onHoverBackgroundChange: (image: string | null) => void;
+        }
+        
+        const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) => {
+          const { getTranslations } = useAppLanguage();
+          const [projectNames, setProjectNames] = useState<{ [key: string]: string }>({});
+          const [randomLayout, setRandomLayout] = useState<React.ReactNode[]>([]);
+        
+          useEffect(() => {
+            const loadProjectNames = async () => {
+              const translations: { [key: string]: string } = {};
+        
+              // 为每个项目加载对应的 YAML 翻译
+              for (const project of projects) {
+                const defaultTranslations = { title: project.name };
+                const projectTranslations = await getTranslations(
+                  `/pages/projects/${project.name}`,
+                  defaultTranslations
+                );
+                translations[project.name] = projectTranslations.title;
+              }
+        
+              setProjectNames(translations);
+            };
+        
+            loadProjectNames();
+          }, [getTranslations]);
+        
+          useEffect(() => {
+            const generateRandomLayout = () => {
+              const rows: React.ReactNode[] = [];
+              const columns = calculateColumns();
+              let index = 0;
+        
+              while (index < projects.length) {
+                const rowItems = [];
+                const spaces = Math.floor(columns / 2); // 每行随机空格数量
+                const spaceIndices = Array.from(
+                  { length: spaces },
+                  () => Math.floor(Math.random() * columns)
+                );
+        
+                for (let i = 0; i < columns; i++) {
+                  if (spaceIndices.includes(i) && index < projects.length + spaces) {
+                    rowItems.push(
+                      <div key={`space-${index}-${i}`} className={styles.spaceFiller}></div>
+                    );
+                  } else if (index < projects.length) {
+                    const project = projects[index++];
+                    rowItems.push(
+                      <div
+                        key={project.name}
+                        className={styles.projectCard}
+                        onMouseEnter={() =>
+                          onHoverBackgroundChange(projectImages[project.name]?.src || null)
+                        }
+                        onMouseLeave={() => onHoverBackgroundChange(null)}
+                      >
+                        <Image
+                          src={projectImages[project.name] || defaultImage}
+                          alt={projectNames[project.name] || project.name}
+                          className={styles.projectImage}
+                          width={300}
+                          height={300}
+                        />
+                        <span className={styles.projectName}>
+                          {projectNames[project.name] || project.name}
+                        </span>
+                      </div>
+                    );
+                  }
+                }
+        
+                rows.push(
+                  <div key={`row-${rows.length}`} className={styles.projectTreeRow}>
+                    {rowItems}
+                  </div>
+                );
+              }
+        
+              return rows;
+            };
+        
+            setRandomLayout(generateRandomLayout());
+          }, [onHoverBackgroundChange, projectNames]);
+        
+          const calculateColumns = (): number => {
+            if (typeof window !== "undefined") {
+              const width = window.innerWidth;
+              if (width <= 480) return 1;
+              if (width <= 768) return 2;
+              return Math.min(4, Math.floor(width / 300));
+            }
+            return 3; // Default for SSR
+          };
+        
+          return <div className={styles.projectTreeWrapper}>{randomLayout}</div>;
+        };
+        
+        export default ProjectTree;
         --- End of File ---
     [context]
       LanguageContext.tsx

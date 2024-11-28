@@ -1,24 +1,21 @@
 "use client";
 
-// import React, { useState } from "react";
-// import { useRouter } from "next/navigation"; // 从 next/navigation 导入 useRouter
-import Image, { StaticImageData } from "next/image"; // 使用 next/image 提供的组件
+import React, { useEffect, useState } from "react";
+import Image, { StaticImageData } from "next/image";
 import styles from "./ProjectTree.module.css";
+import { useAppLanguage } from "../context/LanguageContext";
 
-// 使用 import 静态导入图片
+// 静态导入项目图片
 import projectAImage from "../public/images/project_header/project-a.png";
 import projectBImage from "../public/images/project_header/project-b.png";
 import projectCImage from "../public/images/project_header/project-c.png";
-// 从 D 到 Q 如果没有图片，用 defaultImage 替代
 import defaultImage from "../public/images/project_header/working.webp";
-import React from "react";
 
-// 创建一个映射表，将项目名映射到对应的 StaticImageData，未定义的项目使用默认图片
+// 映射项目图片
 const projectImages: { [key: string]: StaticImageData } = {
   "project-a": projectAImage,
   "project-b": projectBImage,
   "project-c": projectCImage,
-  // 其他项目暂时使用 defaultImage
   "project-d": defaultImage,
   "project-e": defaultImage,
   "project-f": defaultImage,
@@ -35,93 +32,125 @@ const projectImages: { [key: string]: StaticImageData } = {
   "project-q": defaultImage,
 };
 
-// 扩展 projects 列表
+// 扩展项目列表
 const projects = [
-  { name: "project-a", displayName: "Project A" },
-  { name: "project-b", displayName: "Project B" },
-  { name: "project-c", displayName: "Project C" },
-  { name: "project-d", displayName: "Project D" },
-  { name: "project-e", displayName: "Project E" },
-  { name: "project-f", displayName: "Project F" },
-  { name: "project-g", displayName: "Project G" },
-  { name: "project-h", displayName: "Project H" },
-  { name: "project-i", displayName: "Project I" },
-  { name: "project-j", displayName: "Project J" },
-  { name: "project-k", displayName: "Project K" },
-  { name: "project-l", displayName: "Project L" },
-  { name: "project-m", displayName: "Project M" },
-  { name: "project-n", displayName: "Project N" },
-  { name: "project-o", displayName: "Project O" },
-  { name: "project-p", displayName: "Project P" },
-  { name: "project-q", displayName: "Project Q" },
+  { name: "project-a" },
+  { name: "project-b" },
+  { name: "project-c" },
+  { name: "project-d" },
+  { name: "project-e" },
+  { name: "project-f" },
+  { name: "project-g" },
+  { name: "project-h" },
+  { name: "project-i" },
+  { name: "project-j" },
+  { name: "project-k" },
+  { name: "project-l" },
+  { name: "project-m" },
+  { name: "project-n" },
+  { name: "project-o" },
+  { name: "project-p" },
+  { name: "project-q" },
 ];
 
 interface ProjectTreeProps {
-    onHoverBackgroundChange: (image: string | null) => void;
+  onHoverBackgroundChange: (image: string | null) => void;
 }
 
 const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) => {
-    const calculateColumns = (): number => {
-        if (typeof window !== "undefined") {
-            const width = window.innerWidth;
-            if (width <= 480) return 1;
-            if (width <= 768) return 2;
-            return Math.min(4, Math.floor(width / 300));
-        }
-        return 3; // Default for SSR
+  const { getTranslations } = useAppLanguage();
+  const [projectNames, setProjectNames] = useState<{ [key: string]: string }>({});
+  const [randomLayout, setRandomLayout] = useState<React.ReactNode[]>([]);
+
+  useEffect(() => {
+    const loadProjectNames = async () => {
+      const translations: { [key: string]: string } = {};
+
+      // 为每个项目加载对应的 YAML 翻译
+      for (const project of projects) {
+        const defaultTranslations = { title: project.name };
+        const projectTranslations = await getTranslations(
+          `/pages/projects/${project.name}`,
+          defaultTranslations
+        );
+        translations[project.name] = projectTranslations.title;
+      }
+
+      setProjectNames(translations);
     };
 
-    const [columns] = React.useState<number>(calculateColumns()); // 确保只计算一次列数
-    const [randomLayout] = React.useState(() => generateRandomLayout(columns)); // 确保随机排布只生成一次
+    loadProjectNames();
+  }, [getTranslations]);
 
-    function generateRandomLayout(columns: number) {
-        const rows: React.ReactNode[] = [];
-        const itemsPerRow = columns;
-        let index = 0;
+  useEffect(() => {
+    const generateRandomLayout = () => {
+      const rows: React.ReactNode[] = [];
+      const columns = calculateColumns();
+      let index = 0;
 
-        while (index < projects.length) {
-            const rowItems = [];
-            const spaces = Math.floor(columns / 2); // 每行随机空格数量
-            const spaceIndices = Array.from({ length: spaces }, () => Math.floor(Math.random() * columns));
+      while (index < projects.length) {
+        const rowItems = [];
+        const spaces = Math.floor(columns / 2); // 每行随机空格数量
+        const spaceIndices = Array.from(
+          { length: spaces },
+          () => Math.floor(Math.random() * columns)
+        );
 
-            for (let i = 0; i < itemsPerRow; i++) {
-                if (spaceIndices.includes(i) && index < projects.length + spaces) {
-                    rowItems.push(<div key={`space-${index}-${i}`} className={styles.spaceFiller}></div>);
-                } else if (index < projects.length) {
-                    const project = projects[index++];
-                    rowItems.push(
-                        <div
-                            key={project.name}
-                            className={styles.projectCard}
-                            onMouseEnter={() =>
-                                onHoverBackgroundChange(projectImages[project.name]?.src || null)
-                            }
-                            onMouseLeave={() => onHoverBackgroundChange(null)}
-                        >
-                            <Image
-                                src={projectImages[project.name] || defaultImage}
-                                alt={project.displayName}
-                                className={styles.projectImage}
-                                width={300}
-                                height={300}
-                            />
-                            <span className={styles.projectName}>{project.displayName}</span>
-                        </div>
-                    );
-                }
-            }
-
-            rows.push(
-                <div key={`row-${rows.length}`} className={styles.projectTreeRow}>
-                    {rowItems}
-                </div>
+        for (let i = 0; i < columns; i++) {
+          if (spaceIndices.includes(i) && index < projects.length + spaces) {
+            rowItems.push(
+              <div key={`space-${index}-${i}`} className={styles.spaceFiller}></div>
             );
+          } else if (index < projects.length) {
+            const project = projects[index++];
+            rowItems.push(
+              <div
+                key={project.name}
+                className={styles.projectCard}
+                onMouseEnter={() =>
+                  onHoverBackgroundChange(projectImages[project.name]?.src || null)
+                }
+                onMouseLeave={() => onHoverBackgroundChange(null)}
+              >
+                <Image
+                  src={projectImages[project.name] || defaultImage}
+                  alt={projectNames[project.name] || project.name}
+                  className={styles.projectImage}
+                  width={300}
+                  height={300}
+                />
+                <span className={styles.projectName}>
+                  {projectNames[project.name] || project.name}
+                </span>
+              </div>
+            );
+          }
         }
 
-        return rows;
-    }
+        rows.push(
+          <div key={`row-${rows.length}`} className={styles.projectTreeRow}>
+            {rowItems}
+          </div>
+        );
+      }
 
-    return <div className={styles.projectTreeWrapper}>{randomLayout}</div>;
+      return rows;
+    };
+
+    setRandomLayout(generateRandomLayout());
+  }, [onHoverBackgroundChange, projectNames]);
+
+  const calculateColumns = (): number => {
+    if (typeof window !== "undefined") {
+      const width = window.innerWidth;
+      if (width <= 480) return 1;
+      if (width <= 768) return 2;
+      return Math.min(4, Math.floor(width / 300));
+    }
+    return 3; // Default for SSR
+  };
+
+  return <div className={styles.projectTreeWrapper}>{randomLayout}</div>;
 };
 
 export default ProjectTree;
