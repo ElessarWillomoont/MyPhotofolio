@@ -6,14 +6,13 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Navbar, Offcanvas, Nav } from 'react-bootstrap';
 import styles from './NavBar.module.css';
 import { useAppLanguage } from '../context/LanguageContext';
+import Link from 'next/link';  // 引入 Next.js 的 Link 组件
 
 const NavBar: React.FC = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const { getTranslations } = useAppLanguage();
   const offcanvasWidth = 250;
 
-  // 默认翻译内容
-  // 使用 useMemo 包装默认翻译内容，以避免在每次渲染时重新创建
   const defaultTranslations = useMemo(() => ({
     home: "Home",
     about: "About",
@@ -21,10 +20,8 @@ const NavBar: React.FC = () => {
     contact: "Contact"
   }), []);
 
-  // 初始化翻译内容状态
   const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
 
-  // 加载 NavBar 的翻译文件
   useEffect(() => {
     const loadTranslations = async () => {
       const loadedTranslations = await getTranslations('/components/NavBar', defaultTranslations);
@@ -37,17 +34,23 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      {/* 宽屏时的右侧固定导航栏 */}
       <Navbar expand="md" className={`d-none d-md-flex ${styles.fixedNav}`}>
         <Nav className="flex-column text-center">
-          <Nav.Link href="#home">{translations.home}</Nav.Link>
-          <Nav.Link href="#about">{translations.about}</Nav.Link>
-          <Nav.Link href="#services">{translations.services}</Nav.Link>
-          <Nav.Link href="#contact">{translations.contact}</Nav.Link>
+          <Link href="/" legacyBehavior>
+            <a className="nav-link">{translations.home}</a>
+          </Link>
+          <Link href="/about" legacyBehavior>
+            <a className="nav-link">{translations.about}</a>
+          </Link>
+          <Link href="/services" legacyBehavior>
+            <a className="nav-link">{translations.services}</a>
+          </Link>
+          <Link href="/contact" legacyBehavior>
+            <a className="nav-link">{translations.contact}</a>
+          </Link>
         </Nav>
       </Navbar>
 
-      {/* 窄屏时的汉堡菜单按钮 */}
       <button
         className={`d-md-none ${styles.hamburgerButton} ${showOffcanvas ? styles.hamburgerButtonShift : ''}`}
         onClick={toggleOffcanvas}
@@ -56,7 +59,6 @@ const NavBar: React.FC = () => {
         ☰
       </button>
 
-      {/* Offcanvas 侧边栏 */}
       <Offcanvas
         show={showOffcanvas}
         onHide={toggleOffcanvas}
@@ -69,10 +71,18 @@ const NavBar: React.FC = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column">
-            <Nav.Link href="#home" onClick={toggleOffcanvas}>{translations.home}</Nav.Link>
-            <Nav.Link href="#about" onClick={toggleOffcanvas}>{translations.about}</Nav.Link>
-            <Nav.Link href="#services" onClick={toggleOffcanvas}>{translations.services}</Nav.Link>
-            <Nav.Link href="#contact" onClick={toggleOffcanvas}>{translations.contact}</Nav.Link>
+            <Link href="/" legacyBehavior>
+              <a className="nav-link" onClick={toggleOffcanvas}>{translations.home}</a>
+            </Link>
+            <Link href="/about" legacyBehavior>
+              <a className="nav-link" onClick={toggleOffcanvas}>{translations.about}</a>
+            </Link>
+            <Link href="/services" legacyBehavior>
+              <a className="nav-link" onClick={toggleOffcanvas}>{translations.services}</a>
+            </Link>
+            <Link href="/contact" legacyBehavior>
+              <a className="nav-link" onClick={toggleOffcanvas}>{translations.contact}</a>
+            </Link>
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
