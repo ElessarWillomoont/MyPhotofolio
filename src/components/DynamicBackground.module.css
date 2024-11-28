@@ -6,7 +6,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-color: azure; /* 默认背景颜色为天蓝色 */
+    background-color: lightcyan; /* 默认背景颜色为天蓝色 */
     z-index: -1; /* 确保背景在所有内容的后面 */
   }
   

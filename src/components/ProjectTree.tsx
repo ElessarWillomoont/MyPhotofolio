@@ -11,6 +11,7 @@ import projectBImage from "../public/images/project_header/project-b.png";
 import projectCImage from "../public/images/project_header/project-c.png";
 // 从 D 到 Q 如果没有图片，用 defaultImage 替代
 import defaultImage from "../public/images/project_header/working.webp";
+import React from "react";
 
 // 创建一个映射表，将项目名映射到对应的 StaticImageData，未定义的项目使用默认图片
 const projectImages: { [key: string]: StaticImageData } = {
@@ -55,43 +56,72 @@ const projects = [
   { name: "project-q", displayName: "Project Q" },
 ];
 
-
 interface ProjectTreeProps {
-  onHoverBackgroundChange: (image: string | null) => void; // 背景更新回调
+    onHoverBackgroundChange: (image: string | null) => void;
 }
 
 const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) => {
-  const handleMouseEnter = (projectName: string) => {
-    const image = projectImages[projectName]?.src || null;
-    onHoverBackgroundChange(image); // 通知父组件更新背景
-  };
+    const calculateColumns = (): number => {
+        if (typeof window !== "undefined") {
+            const width = window.innerWidth;
+            if (width <= 480) return 1;
+            if (width <= 768) return 2;
+            return Math.min(4, Math.floor(width / 300));
+        }
+        return 3; // Default for SSR
+    };
 
-  const handleMouseLeave = () => {
-    onHoverBackgroundChange(null); // 清空背景
-  };
+    const [columns] = React.useState<number>(calculateColumns()); // 确保只计算一次列数
+    const [randomLayout] = React.useState(() => generateRandomLayout(columns)); // 确保随机排布只生成一次
 
-  return (
-    <div className={styles.projectTree}>
-      {projects.map((project) => (
-        <div
-          key={project.name}
-          className={styles.projectCard}
-          onMouseEnter={() => handleMouseEnter(project.name)}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Image
-            src={projectImages[project.name] || defaultImage}
-            alt={project.displayName}
-            className={styles.projectImage}
-            width={300}
-            height={300}
-          />
-          <span className={styles.projectName}>{project.displayName}</span>
-        </div>
-      ))}
-    </div>
-  );
+    function generateRandomLayout(columns: number) {
+        const rows: React.ReactNode[] = [];
+        const itemsPerRow = columns;
+        let index = 0;
+
+        while (index < projects.length) {
+            const rowItems = [];
+            const spaces = Math.floor(columns / 2); // 每行随机空格数量
+            const spaceIndices = Array.from({ length: spaces }, () => Math.floor(Math.random() * columns));
+
+            for (let i = 0; i < itemsPerRow; i++) {
+                if (spaceIndices.includes(i) && index < projects.length + spaces) {
+                    rowItems.push(<div key={`space-${index}-${i}`} className={styles.spaceFiller}></div>);
+                } else if (index < projects.length) {
+                    const project = projects[index++];
+                    rowItems.push(
+                        <div
+                            key={project.name}
+                            className={styles.projectCard}
+                            onMouseEnter={() =>
+                                onHoverBackgroundChange(projectImages[project.name]?.src || null)
+                            }
+                            onMouseLeave={() => onHoverBackgroundChange(null)}
+                        >
+                            <Image
+                                src={projectImages[project.name] || defaultImage}
+                                alt={project.displayName}
+                                className={styles.projectImage}
+                                width={300}
+                                height={300}
+                            />
+                            <span className={styles.projectName}>{project.displayName}</span>
+                        </div>
+                    );
+                }
+            }
+
+            rows.push(
+                <div key={`row-${rows.length}`} className={styles.projectTreeRow}>
+                    {rowItems}
+                </div>
+            );
+        }
+
+        return rows;
+    }
+
+    return <div className={styles.projectTreeWrapper}>{randomLayout}</div>;
 };
 
 export default ProjectTree;
-

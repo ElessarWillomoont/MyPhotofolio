@@ -1977,14 +1977,32 @@
         --- End of File ---
       ProjectTree.module.css
         --- File Content ---
-        /* src/components/styles/ProjectTree.module.css */
-        
-        .projectTree {
+        .projectTreeWrapper {
+            display: flex;
+            justify-content: center; /* 确保整个网格容器水平居中 */
+            padding: 16px;
+          }
+          
+          .projectTree {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 16px;
-            justify-content: center;
-            padding: 16px;
+            width: 66%; /* 默认占中间 66% */
+            max-width: 1000px; /* 设置最大宽度以避免过度扩展 */
+            margin: 0 auto; /* 确保网格居中 */
+          }
+          
+          @media (max-width: 768px) {
+            .projectTree {
+              width: 80%; /* 在小屏幕上减少两侧留白 */
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .projectTree {
+              width: 100%; /* 在非常小的屏幕上占满整个视口 */
+              grid-template-columns: 1fr; /* 强制单列布局 */
+            }
           }
           
           .projectCard {
