@@ -25,7 +25,7 @@
   /* 窄屏汉堡菜单按钮样式 */
   .hamburgerButton {
     position: fixed;
-    top: 20px;
+    top: 45vh;
     right: 0px; /* 紧贴右侧 */
     width: 40px;
     height: 40px;

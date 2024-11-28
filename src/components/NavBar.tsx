@@ -9,7 +9,7 @@ import { useAppLanguage } from '../context/LanguageContext';
 
 const NavBar: React.FC = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const { language, setLanguage, getTranslations } = useAppLanguage();
+  const { getTranslations } = useAppLanguage();
   const offcanvasWidth = 250;
 
   // 默认翻译内容
@@ -18,8 +18,7 @@ const NavBar: React.FC = () => {
     home: "Home",
     about: "About",
     services: "Services",
-    contact: "Contact",
-    language: "Language"
+    contact: "Contact"
   }), []);
 
   // 初始化翻译内容状态
@@ -32,7 +31,7 @@ const NavBar: React.FC = () => {
       setTranslations(loadedTranslations);
     };
     loadTranslations();
-  }, [defaultTranslations, getTranslations, language]);
+  }, [defaultTranslations, getTranslations]);
 
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 
@@ -74,19 +73,6 @@ const NavBar: React.FC = () => {
             <Nav.Link href="#about" onClick={toggleOffcanvas}>{translations.about}</Nav.Link>
             <Nav.Link href="#services" onClick={toggleOffcanvas}>{translations.services}</Nav.Link>
             <Nav.Link href="#contact" onClick={toggleOffcanvas}>{translations.contact}</Nav.Link>
-            <hr />
-            {/* 语言切换选项 */}
-            <div className="text-center">
-              <button onClick={() => setLanguage('en')} disabled={language === 'en'}>
-                English
-              </button>
-              <button onClick={() => setLanguage('fr')} disabled={language === 'fr'}>
-                Français
-              </button>
-              <button onClick={() => setLanguage('zh')} disabled={language === 'zh'}>
-                中文
-              </button>
-            </div>
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
