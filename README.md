@@ -119,6 +119,10 @@ src/
     └── LanguageContext.tsx
 ```
 
+## Project Tree and Dynamic Background
+
+This project implemented a simple project tree and dynamic background logic(see each component in the component folder), to allow users add their project and orgnize dynamically base on user device, when you move your mouse above the project card, the background will be changed into the project image.
+
 ## Troubleshooting
 If the translation file is missing, a warning will appear in the console, and the application will fall back to default translations defined within the component.
 
