@@ -1,57 +1,43 @@
-/* 项目树容器 */
+/* src/components/styles/ProjectTree.module.css */
+
 .projectTree {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 动态列数 */
-    gap: 32px; /* 网格间距 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    justify-content: center;
     padding: 16px;
-    background-color: #f8f9fa;
-    transition: background-image 0.3s ease-in-out;
-    justify-content: center; /* 水平居中对齐 */
-    align-items: stretch; /* 确保卡片垂直方向填满单元格 */
-}
-
-/* 单个项目卡片 */
-.projectCard {
-    display: flex;
-    flex-direction: column;
-    position: relative; /* 使内部元素可绝对定位 */
+  }
+  
+  .projectCard {
+    position: relative;
     cursor: pointer;
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
+    aspect-ratio: 1 / 1.3;
     overflow: hidden;
-    width: 100%; /* 填满父容器 */
-    aspect-ratio: 1 / 1.3; /* 保持宽高比 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.projectCard:hover {
-    transform: translateY(-5px); /* 悬停上移效果 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增强悬停阴影 */
-}
-
-/* 项目图片样式 */
-.projectImage {
-    width: 100%; /* 填满父容器宽度 */
-    height: 100%; /* 填满父容器高度 */
-    object-fit: cover; /* 确保图片裁剪适应容器 */
-    position: absolute; /* 图片覆盖整个卡片 */
-    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .projectName {
+    position: absolute;
+    bottom: 0;
     left: 0;
-}
-
-/* 项目名称样式 */
-.projectName {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px;
+    width: 100%;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
     text-align: center;
-    color: #fff; /* 白色文字 */
-    background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
-    width: 100%; /* 占满宽度 */
-    position: absolute; /* 标题绝对定位 */
-    bottom: 0; /* 固定在卡片底部 */
-    left: 0;
-    z-index: 1; /* 确保标题在图片之上 */
-}
+    font-size: 16px;
+    font-weight: bold;
+  }
+  

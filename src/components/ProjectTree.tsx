@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation"; // 从 next/navigation 导入 useRouter
+// import React, { useState } from "react";
+// import { useRouter } from "next/navigation"; // 从 next/navigation 导入 useRouter
 import Image, { StaticImageData } from "next/image"; // 使用 next/image 提供的组件
 import styles from "./ProjectTree.module.css";
 
@@ -55,46 +55,36 @@ const projects = [
   { name: "project-q", displayName: "Project Q" },
 ];
 
-const ProjectTree: React.FC = () => {
-  const router = useRouter();
-  const [hoveredImage, setHoveredImage] = useState<StaticImageData | null>(null);
 
+interface ProjectTreeProps {
+  onHoverBackgroundChange: (image: string | null) => void; // 背景更新回调
+}
+
+const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) => {
   const handleMouseEnter = (projectName: string) => {
-    const image = projectImages[projectName] || defaultImage;
-    setHoveredImage(image);
+    const image = projectImages[projectName]?.src || null;
+    onHoverBackgroundChange(image); // 通知父组件更新背景
   };
 
   const handleMouseLeave = () => {
-    setHoveredImage(null);
-  };
-
-  const handleProjectClick = (projectName: string) => {
-    router.push(`/projects/${projectName}`);
+    onHoverBackgroundChange(null); // 清空背景
   };
 
   return (
-    <div
-      className={styles.projectTree}
-      style={{
-        backgroundImage: hoveredImage ? `url(${hoveredImage.src})` : "none",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className={styles.projectTree}>
       {projects.map((project) => (
         <div
           key={project.name}
           className={styles.projectCard}
-          onClick={() => handleProjectClick(project.name)}
           onMouseEnter={() => handleMouseEnter(project.name)}
           onMouseLeave={handleMouseLeave}
         >
           <Image
             src={projectImages[project.name] || defaultImage}
             alt={project.displayName}
+            className={styles.projectImage}
             width={300}
             height={300}
-            className={styles.projectImage}
           />
           <span className={styles.projectName}>{project.displayName}</span>
         </div>
@@ -104,3 +94,4 @@ const ProjectTree: React.FC = () => {
 };
 
 export default ProjectTree;
+

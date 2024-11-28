@@ -10,6 +10,21 @@
         [projects]
           project-a.yaml
           project-b.yaml
+          project-c.yaml
+          project-d.yaml
+          project-e.yaml
+          project-f.yaml
+          project-g.yaml
+          project-h.yaml
+          project-i.yaml
+          project-j.yaml
+          project-k.yaml
+          project-l.yaml
+          project-m.yaml
+          project-n.yaml
+          project-o.yaml
+          project-p copy.yaml
+          project-q.yaml
   [src]
     [app]
       globals.css
@@ -27,6 +42,51 @@
         [project-b]
           page.tsx
           ProjectPage.module.css
+        [project-c]
+          page.tsx
+          ProjectPage.module.css
+        [project-d]
+          page.tsx
+          ProjectPage.module.css
+        [project-e]
+          page.tsx
+          ProjectPage.module.css
+        [project-f]
+          page.tsx
+          ProjectPage.module.css
+        [project-g]
+          page.tsx
+          ProjectPage.module.css
+        [project-h]
+          page.tsx
+          ProjectPage.module.css
+        [project-i]
+          page.tsx
+          ProjectPage.module.css
+        [project-j]
+          page.tsx
+          ProjectPage.module.css
+        [project-k]
+          page.tsx
+          ProjectPage.module.css
+        [project-l]
+          page.tsx
+          ProjectPage.module.css
+        [project-m]
+          page.tsx
+          ProjectPage.module.css
+        [project-n]
+          page.tsx
+          ProjectPage.module.css
+        [project-o]
+          page.tsx
+          ProjectPage.module.css
+        [project-p]
+          page.tsx
+          ProjectPage.module.css
+        [project-q]
+          page.tsx
+          ProjectPage.module.css
     [components]
       Header.module.css
       Header.tsx
@@ -38,10 +98,13 @@
       NavBar.json
       NavBar.module.css
       NavBar.tsx
+      ProjectTree.module.css
+      ProjectTree.tsx
     [context]
       LanguageContext.tsx
     [public]
       [images]
+        [project_header]
 
 --- Project File Tree with Content ---
 [.]
@@ -105,6 +168,186 @@
               description: "项目A的描述..."
             --- End of File ---
           project-b.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-c.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-d.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-e.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-f.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-g.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-h.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-i.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-j.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-k.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-l.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-m.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-n.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-o.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-p copy.yaml
+            --- File Content ---
+            en:
+              title: "Project B"
+              description: "Description of Project B..."
+            fr:
+              title: "Projet B"
+              description: "Description du Projet B..."
+            zh:
+              title: "项目B"
+              description: "项目B的描述..."
+            --- End of File ---
+          project-q.yaml
             --- File Content ---
             en:
               title: "Project B"
@@ -238,6 +481,7 @@
         import MainPage from '../components/MainPage';
         import NavBar from '../components/NavBar';
         import LanguageSelector from '../components/LanguageSelector'; // 引入语言选择组件
+        import ProjectTree from '../components/ProjectTree'
         
         const Page: React.FC = () => {
           return (
@@ -246,6 +490,7 @@
               <NavBar />
               <LanguageSelector /> {/* 引入语言选择组件 */}
               <MainPage />
+              <ProjectTree />
               <MainPage />
               <MainPage />
               <MainPage />
@@ -569,6 +814,681 @@
             --- File Content ---
             --- End of File ---
         [project-b]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-c]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-d]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-e]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-f]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-g]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-h]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-i]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-j]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-k]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-l]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-m]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-n]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-o]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-p]
+          page.tsx
+            --- File Content ---
+            // pages/project-a.tsx
+            "use client";
+            
+            import React, { useEffect, useMemo, useState } from 'react';
+            import { useAppLanguage } from '../../../context/LanguageContext';
+            import styles from './ProjectPage.module.css';
+            import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+            import NavBar from '../../../components/NavBar';
+            
+            const ProjectAPage: React.FC = () => {
+              const { getTranslations } = useAppLanguage();
+              
+              const defaultTranslations = useMemo(() => ({
+                title: "Project A",
+                description: "Description of Project A..."
+              }), []);
+            
+              const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
+            
+              useEffect(() => {
+                const loadTranslations = async () => {
+                  const loadedTranslations = await getTranslations('/pages/projects/project-b', defaultTranslations);
+                  setTranslations(loadedTranslations);
+                };
+                loadTranslations();
+              }, [getTranslations, defaultTranslations]);
+            
+              return (
+                <div className={styles.projectPage}>
+                  <LanguageSelector /> {/* 引入语言选择组件 */}
+                  <NavBar />
+                  <h1>{translations.title}</h1>
+                  <p>{translations.description}</p>
+                </div>
+              );
+            };
+            
+            export default ProjectAPage;
+            --- End of File ---
+          ProjectPage.module.css
+            --- File Content ---
+            --- End of File ---
+        [project-q]
           page.tsx
             --- File Content ---
             // pages/project-a.tsx
@@ -994,6 +1914,175 @@
         
         export default NavBar;
         --- End of File ---
+      ProjectTree.module.css
+        --- File Content ---
+        /* 项目树容器 */
+        .projectTree {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 动态列数 */
+            gap: 32px; /* 网格间距 */
+            padding: 16px;
+            background-color: #f8f9fa;
+            transition: background-image 0.3s ease-in-out;
+            justify-content: center; /* 水平居中对齐 */
+            align-items: stretch; /* 确保卡片垂直方向填满单元格 */
+        }
+        
+        /* 单个项目卡片 */
+        .projectCard {
+            display: flex;
+            flex-direction: column;
+            position: relative; /* 使内部元素可绝对定位 */
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+            width: 100%; /* 填满父容器 */
+            aspect-ratio: 1 / 1.3; /* 保持宽高比 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .projectCard:hover {
+            transform: translateY(-5px); /* 悬停上移效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增强悬停阴影 */
+        }
+        
+        /* 项目图片样式 */
+        .projectImage {
+            width: 100%; /* 填满父容器宽度 */
+            height: 100%; /* 填满父容器高度 */
+            object-fit: cover; /* 确保图片裁剪适应容器 */
+            position: absolute; /* 图片覆盖整个卡片 */
+            top: 0;
+            left: 0;
+        }
+        
+        /* 项目名称样式 */
+        .projectName {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px;
+            text-align: center;
+            color: #fff; /* 白色文字 */
+            background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
+            width: 100%; /* 占满宽度 */
+            position: absolute; /* 标题绝对定位 */
+            bottom: 0; /* 固定在卡片底部 */
+            left: 0;
+            z-index: 1; /* 确保标题在图片之上 */
+        }
+        --- End of File ---
+      ProjectTree.tsx
+        --- File Content ---
+        "use client";
+        
+        import React, { useState } from "react";
+        import { useRouter } from "next/navigation"; // 从 next/navigation 导入 useRouter
+        import Image, { StaticImageData } from "next/image"; // 使用 next/image 提供的组件
+        import styles from "./ProjectTree.module.css";
+        
+        // 使用 import 静态导入图片
+        import projectAImage from "../public/images/project_header/project-a.png";
+        import projectBImage from "../public/images/project_header/project-b.png";
+        import projectCImage from "../public/images/project_header/project-c.png";
+        // 从 D 到 Q 如果没有图片，用 defaultImage 替代
+        import defaultImage from "../public/images/project_header/working.webp";
+        
+        // 创建一个映射表，将项目名映射到对应的 StaticImageData，未定义的项目使用默认图片
+        const projectImages: { [key: string]: StaticImageData } = {
+          "project-a": projectAImage,
+          "project-b": projectBImage,
+          "project-c": projectCImage,
+          // 其他项目暂时使用 defaultImage
+          "project-d": defaultImage,
+          "project-e": defaultImage,
+          "project-f": defaultImage,
+          "project-g": defaultImage,
+          "project-h": defaultImage,
+          "project-i": defaultImage,
+          "project-j": defaultImage,
+          "project-k": defaultImage,
+          "project-l": defaultImage,
+          "project-m": defaultImage,
+          "project-n": defaultImage,
+          "project-o": defaultImage,
+          "project-p": defaultImage,
+          "project-q": defaultImage,
+        };
+        
+        // 扩展 projects 列表
+        const projects = [
+          { name: "project-a", displayName: "Project A" },
+          { name: "project-b", displayName: "Project B" },
+          { name: "project-c", displayName: "Project C" },
+          { name: "project-d", displayName: "Project D" },
+          { name: "project-e", displayName: "Project E" },
+          { name: "project-f", displayName: "Project F" },
+          { name: "project-g", displayName: "Project G" },
+          { name: "project-h", displayName: "Project H" },
+          { name: "project-i", displayName: "Project I" },
+          { name: "project-j", displayName: "Project J" },
+          { name: "project-k", displayName: "Project K" },
+          { name: "project-l", displayName: "Project L" },
+          { name: "project-m", displayName: "Project M" },
+          { name: "project-n", displayName: "Project N" },
+          { name: "project-o", displayName: "Project O" },
+          { name: "project-p", displayName: "Project P" },
+          { name: "project-q", displayName: "Project Q" },
+        ];
+        
+        const ProjectTree: React.FC = () => {
+          const router = useRouter();
+          const [hoveredImage, setHoveredImage] = useState<StaticImageData | null>(null);
+        
+          const handleMouseEnter = (projectName: string) => {
+            const image = projectImages[projectName] || defaultImage;
+            setHoveredImage(image);
+          };
+        
+          const handleMouseLeave = () => {
+            setHoveredImage(null);
+          };
+        
+          const handleProjectClick = (projectName: string) => {
+            router.push(`/projects/${projectName}`);
+          };
+        
+          return (
+            <div
+              className={styles.projectTree}
+              style={{
+                backgroundImage: hoveredImage ? `url(${hoveredImage.src})` : "none",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {projects.map((project) => (
+                <div
+                  key={project.name}
+                  className={styles.projectCard}
+                  onClick={() => handleProjectClick(project.name)}
+                  onMouseEnter={() => handleMouseEnter(project.name)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Image
+                    src={projectImages[project.name] || defaultImage}
+                    alt={project.displayName}
+                    width={300}
+                    height={300}
+                    className={styles.projectImage}
+                  />
+                  <span className={styles.projectName}>{project.displayName}</span>
+                </div>
+              ))}
+            </div>
+          );
+        };
+        
+        export default ProjectTree;
+        --- End of File ---
     [context]
       LanguageContext.tsx
         --- File Content ---
@@ -1061,3 +2150,4 @@
         --- End of File ---
     [public]
       [images]
+        [project_header]

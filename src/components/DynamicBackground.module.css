@@ -1,0 +1,12 @@
+/* src/components/styles/DynamicBackground.module.css */
+
+.dynamicBackground {
+    position: fixed; /* 背景固定在视口 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* 在所有内容的后面 */
+    transition: background-image 0.5s ease-in-out; /* 平滑过渡 */
+  }
+  
