@@ -88,6 +88,8 @@
           page.tsx
           ProjectPage.module.css
     [components]
+      DynamicBackground.module.css
+      DynamicBackground.tsx
       Header.module.css
       Header.tsx
       LanguageLayout.tsx
@@ -476,21 +478,27 @@
         --- End of File ---
       page.tsx
         --- File Content ---
-        import React from 'react';
+        "use client";
+        
+        import React, { useState } from 'react';
         import Header from '../components/Header'; // 引入 Header 组件
         import MainPage from '../components/MainPage';
         import NavBar from '../components/NavBar';
         import LanguageSelector from '../components/LanguageSelector'; // 引入语言选择组件
-        import ProjectTree from '../components/ProjectTree'
+        import ProjectTree from '../components/ProjectTree';
+        import DynamicBackground from '../components/DynamicBackground'; // 引入动态背景组件
         
         const Page: React.FC = () => {
+          const [backgroundImage, setBackgroundImage] = useState<string | null>(null); // 用于管理背景状态
+        
           return (
             <>
+              <DynamicBackground backgroundImage={backgroundImage} /> {/* 动态背景 */}
               <Header /> {/* 使用 Header 组件 */}
               <NavBar />
               <LanguageSelector /> {/* 引入语言选择组件 */}
               <MainPage />
-              <ProjectTree />
+              <ProjectTree onHoverBackgroundChange={setBackgroundImage} /> {/* 传递背景更新回调 */}
               <MainPage />
               <MainPage />
               <MainPage />
@@ -1534,6 +1542,59 @@
             --- File Content ---
             --- End of File ---
     [components]
+      DynamicBackground.module.css
+        --- File Content ---
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-color: azure; /* 默认背景颜色为天蓝色 */
+            z-index: -1; /* 确保背景在所有内容的后面 */
+          }
+          
+          .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2); /* 半透明白色 */
+            -webkit-backdrop-filter: blur(20px); /* Safari 支持 */
+            backdrop-filter: blur(20px); /* 添加毛玻璃效果 */
+            z-index: 1; /* 遮罩层 */
+          }
+          
+        --- End of File ---
+      DynamicBackground.tsx
+        --- File Content ---
+        "use client";
+        
+        import React from "react";
+        import styles from "./DynamicBackground.module.css";
+        
+        interface DynamicBackgroundProps {
+          backgroundImage: string | null; // 背景图片地址
+        }
+        
+        const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ backgroundImage }) => {
+          return (
+            <div
+              className={styles.background}
+              style={{
+                backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
+              }}
+            >
+              <div className={styles.overlay}></div> {/* 毛玻璃遮罩层 */}
+            </div>
+          );
+        };
+        
+        export default DynamicBackground;
+        --- End of File ---
       Header.module.css
         --- File Content ---
         .header {
@@ -1916,70 +1977,56 @@
         --- End of File ---
       ProjectTree.module.css
         --- File Content ---
-        /* 项目树容器 */
+        /* src/components/styles/ProjectTree.module.css */
+        
         .projectTree {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 动态列数 */
-            gap: 32px; /* 网格间距 */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            justify-content: center;
             padding: 16px;
-            background-color: #f8f9fa;
-            transition: background-image 0.3s ease-in-out;
-            justify-content: center; /* 水平居中对齐 */
-            align-items: stretch; /* 确保卡片垂直方向填满单元格 */
-        }
-        
-        /* 单个项目卡片 */
-        .projectCard {
-            display: flex;
-            flex-direction: column;
-            position: relative; /* 使内部元素可绝对定位 */
+          }
+          
+          .projectCard {
+            position: relative;
             cursor: pointer;
-            background-color: transparent;
-            border: none;
-            border-radius: 0;
+            aspect-ratio: 1 / 1.3;
             overflow: hidden;
-            width: 100%; /* 填满父容器 */
-            aspect-ratio: 1 / 1.3; /* 保持宽高比 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .projectCard:hover {
-            transform: translateY(-5px); /* 悬停上移效果 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增强悬停阴影 */
-        }
-        
-        /* 项目图片样式 */
-        .projectImage {
-            width: 100%; /* 填满父容器宽度 */
-            height: 100%; /* 填满父容器高度 */
-            object-fit: cover; /* 确保图片裁剪适应容器 */
-            position: absolute; /* 图片覆盖整个卡片 */
-            top: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          
+          .projectCard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+          
+          .projectImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .projectName {
+            position: absolute;
+            bottom: 0;
             left: 0;
-        }
-        
-        /* 项目名称样式 */
-        .projectName {
-            font-size: 18px;
-            font-weight: bold;
-            padding: 12px;
+            width: 100%;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
             text-align: center;
-            color: #fff; /* 白色文字 */
-            background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
-            width: 100%; /* 占满宽度 */
-            position: absolute; /* 标题绝对定位 */
-            bottom: 0; /* 固定在卡片底部 */
-            left: 0;
-            z-index: 1; /* 确保标题在图片之上 */
-        }
+            font-size: 16px;
+            font-weight: bold;
+          }
+          
         --- End of File ---
       ProjectTree.tsx
         --- File Content ---
         "use client";
         
-        import React, { useState } from "react";
-        import { useRouter } from "next/navigation"; // 从 next/navigation 导入 useRouter
+        // import React, { useState } from "react";
+        // import { useRouter } from "next/navigation"; // 从 next/navigation 导入 useRouter
         import Image, { StaticImageData } from "next/image"; // 使用 next/image 提供的组件
         import styles from "./ProjectTree.module.css";
         
@@ -2033,46 +2080,36 @@
           { name: "project-q", displayName: "Project Q" },
         ];
         
-        const ProjectTree: React.FC = () => {
-          const router = useRouter();
-          const [hoveredImage, setHoveredImage] = useState<StaticImageData | null>(null);
         
+        interface ProjectTreeProps {
+          onHoverBackgroundChange: (image: string | null) => void; // 背景更新回调
+        }
+        
+        const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) => {
           const handleMouseEnter = (projectName: string) => {
-            const image = projectImages[projectName] || defaultImage;
-            setHoveredImage(image);
+            const image = projectImages[projectName]?.src || null;
+            onHoverBackgroundChange(image); // 通知父组件更新背景
           };
         
           const handleMouseLeave = () => {
-            setHoveredImage(null);
-          };
-        
-          const handleProjectClick = (projectName: string) => {
-            router.push(`/projects/${projectName}`);
+            onHoverBackgroundChange(null); // 清空背景
           };
         
           return (
-            <div
-              className={styles.projectTree}
-              style={{
-                backgroundImage: hoveredImage ? `url(${hoveredImage.src})` : "none",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
+            <div className={styles.projectTree}>
               {projects.map((project) => (
                 <div
                   key={project.name}
                   className={styles.projectCard}
-                  onClick={() => handleProjectClick(project.name)}
                   onMouseEnter={() => handleMouseEnter(project.name)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <Image
                     src={projectImages[project.name] || defaultImage}
                     alt={project.displayName}
+                    className={styles.projectImage}
                     width={300}
                     height={300}
-                    className={styles.projectImage}
                   />
                   <span className={styles.projectName}>{project.displayName}</span>
                 </div>
@@ -2082,6 +2119,7 @@
         };
         
         export default ProjectTree;
+        
         --- End of File ---
     [context]
       LanguageContext.tsx
