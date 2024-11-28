@@ -17,7 +17,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
   const getTranslations = async (filePath: string, defaultTranslations: { [key: string]: string }) => {
-    console.log(`Attempting to load translations for language: ${language} from file: ${filePath}.yaml`);
+    // console.log(`Attempting to load translations for language: ${language} from file: ${filePath}.yaml`);
     
     try {
       // 使用 fetch 获取 YAML 文件内容
@@ -32,7 +32,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       // console.log(`Parsed translations object:`, translations);
 
       if (translations && translations[language]) {
-        console.log(`Translations loaded for ${language}:`, translations[language]);
+        // console.log(`Translations loaded for ${language}:`, translations[language]);
         return { ...defaultTranslations, ...translations[language] };
       } else {
         console.warn(`Translations for ${language} not found in the YAML file. Falling back to default translations.`);

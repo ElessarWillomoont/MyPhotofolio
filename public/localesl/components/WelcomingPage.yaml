@@ -1,0 +1,12 @@
+en:
+  welcomeMessage: "Welcome to My Website!"
+  scrollDown: "Scroll Down"
+  clickToStart: "Click to Start"
+fr:
+  welcomeMessage: "Bienvenue sur mon site Web !"
+  scrollDown: "Faites défiler vers le bas"
+  clickToStart: "Cliquez ici pour commencer"
+zh:
+  welcomeMessage: "欢迎来到我的网站！"
+  scrollDown: "向下滚动"
+  clickToStart: "点击这里开始"
