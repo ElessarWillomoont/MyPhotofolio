@@ -8,6 +8,8 @@ import LanguageSelector from '../components/LanguageSelector'; // 引入语言�
 import ProjectTree from '../components/ProjectTree';
 import DynamicBackground from '../components/DynamicBackground'; // 引入动态背景组件
 import WelcomingPage from '../components/WelcomingPage';
+import ProjectBanner from '@/components/ProjectBanner';
+import Footer from '@/components/Footer';
 
 const Page: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null); // 用于管理背景状态
@@ -19,7 +21,9 @@ const Page: React.FC = () => {
       <NavBar />
       <LanguageSelector /> {/* 引入语言选择组件 */}
       <WelcomingPage />
+      <ProjectBanner />
       <ProjectTree onHoverBackgroundChange={setBackgroundImage} /> {/* 传递背景更新回调 */}
+      <Footer backgroundColor="steelblue"/>
       <MainPage />
       <MainPage />
       <MainPage />

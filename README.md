@@ -123,6 +123,42 @@ src/
 
 This project implemented a simple project tree and dynamic background logic(see each component in the component folder), to allow users add their project and orgnize dynamically base on user device, when you move your mouse above the project card, the background will be changed into the project image.
 
+## Footer Component
+
+The `Footer` component is a reusable component designed to display a footer with configurable background options (image or color) and multi-language support. It is responsive and ensures the content remains centered with dynamic text resizing.
+
+### Features
+
+- **Customizable Background**: Supports background images or colors, with a default color fallback.
+- **Multi-Language Support**: Dynamically loads translations from YAML files based on the current language context.
+- **Responsive Design**: Automatically adjusts font size and ensures content remains centered.
+
+### Usage
+
+To use the `Footer` component, import it into your page or layout file and provide the desired properties:
+
+```typescript
+import Footer from './components/Footer';
+import customBackground from '../public/images/custom-footer.webp'; // Example custom background image
+
+const ExamplePage: React.FC = () => {
+  return (
+    <>
+      {/* Footer with default background color */}
+      <Footer />
+
+      {/* Footer with custom background color */}
+      <Footer backgroundColor="#0055aa" />
+
+      {/* Footer with custom background image */}
+      <Footer backgroundImage={customBackground} />
+    </>
+  );
+};
+
+export default ExamplePage;
+```
+
 ## Troubleshooting
 If the translation file is missing, a warning will appear in the console, and the application will fall back to default translations defined within the component.
 
