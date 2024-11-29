@@ -20,6 +20,7 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
 
     const [isDrawingComplete, setIsDrawingComplete] = useState(false); // 是否完成显示
     const [hasUserClicked, setHasUserClicked] = useState(false); // 用户是否点击开始动画
+    const [isOverlayVisible, setIsOverlayVisible] = useState(false); // 控制毛玻璃背景显示
     const containerRef = useRef<HTMLDivElement>(null);
 
     // 加载翻译内容
@@ -45,6 +46,7 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
     const handleUserClick = () => {
         if (!hasUserClicked) {
             setHasUserClicked(true); // 设置用户已点击
+            setIsOverlayVisible(true); // 显示毛玻璃背景
             fadeInSignature(); // 开始淡入
         } else if (!isDrawingComplete) {
             setIsDrawingComplete(true); // 跳过动画
@@ -53,6 +55,12 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
 
     return (
         <div className={styles.container} ref={containerRef} onClick={handleUserClick}>
+            {/* 毛玻璃背景覆盖层 */}
+            <div
+                className={`${styles.backgroundOverlay} ${
+                    isOverlayVisible ? styles.visible : ""
+                }`}
+            ></div>
             {!hasUserClicked && (
                 <div className={styles.clickToStart}>
                     {translations.clickToStart} {/* 点击提示 */}
@@ -64,7 +72,7 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
                         src={signatureSVG}
                         alt="Signature"
                         className={`${styles.signature} ${
-                            isDrawingComplete ? styles.fadeInComplete : styles.fadeIn
+                            isDrawingComplete ? styles.fadeInComplete : ""
                         }`}
                         id="signatureSVG"
                     />
