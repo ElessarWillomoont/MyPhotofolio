@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link"; // 引入 Link 组件
 import styles from "./ProjectTree.module.css";
 import { useAppLanguage } from "../context/LanguageContext";
 
@@ -66,7 +67,6 @@ const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) =>
     const loadProjectNames = async () => {
       const translations: { [key: string]: string } = {};
 
-      // 为每个项目加载对应的 YAML 翻译
       for (const project of projects) {
         const defaultTranslations = { title: project.name };
         const projectTranslations = await getTranslations(
@@ -90,7 +90,7 @@ const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) =>
 
       while (index < projects.length) {
         const rowItems = [];
-        const spaces = Math.floor(columns / 2); // 每行随机空格数量
+        const spaces = Math.floor(columns / 2);
         const spaceIndices = Array.from(
           { length: spaces },
           () => Math.floor(Math.random() * columns)
@@ -104,9 +104,10 @@ const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) =>
           } else if (index < projects.length) {
             const project = projects[index++];
             rowItems.push(
-              <div
+              <Link
+                href={`/projects/${project.name}`}
                 key={project.name}
-                className={styles.projectCard}
+                className={styles.projectCard} // 添加 Link 包裹卡片
                 onMouseEnter={() =>
                   onHoverBackgroundChange(projectImages[project.name]?.src || null)
                 }
@@ -122,7 +123,7 @@ const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) =>
                 <span className={styles.projectName}>
                   {projectNames[project.name] || project.name}
                 </span>
-              </div>
+              </Link>
             );
           }
         }
