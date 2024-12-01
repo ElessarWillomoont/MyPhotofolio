@@ -13,9 +13,9 @@ const NavBar: React.FC = () => {
 
   const defaultTranslations = useMemo(() => ({
     home: "Home",
-    about: "About",
-    services: "Services",
-    contact: "Contact"
+    // about: "About",
+    // services: "Services",
+    // contact: "Contact"
   }), []);
 
   const [translations, setTranslations] = useState<{ [key: string]: string }>(defaultTranslations);
@@ -38,7 +38,7 @@ const NavBar: React.FC = () => {
           <Link href="/" legacyBehavior>
             <a className={`nav-link ${styles.customNavLink}`}>{translations.home}</a>
           </Link>
-          <Link href="/about" legacyBehavior>
+          {/* <Link href="/about" legacyBehavior>
             <a className={`nav-link ${styles.customNavLink}`}>{translations.about}</a>
           </Link>
           <Link href="/services" legacyBehavior>
@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
           </Link>
           <Link href="/contact" legacyBehavior>
             <a className={`nav-link ${styles.customNavLink}`}>{translations.contact}</a>
-          </Link>
+          </Link> */}
         </Nav>
       </Navbar>
 

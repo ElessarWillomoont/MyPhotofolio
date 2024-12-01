@@ -20,14 +20,14 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     // console.log(`Attempting to load translations for language: ${language} from file: ${filePath}.yaml`);
     
     try {
-      // 使用 fetch 获取 YAML 文件内容
+      // Use fetch to get the YAML file content
       // const response = await fetch(`/locales/${filePath}.yaml`);
       // const response = await fetch(`/localesl/components/NavBar.yaml`);
       const response = await fetch(`/localesl/${filePath}.yaml`);
       const yamlText = await response.text();
       // console.log(`YAML file loaded as string:`, yamlText);
 
-      // 使用 js-yaml 解析 YAML 文件，保留格式
+      // Use js-yaml to parse the YAML file while preserving the format
       const translations = yaml.load(yamlText) as { [key: string]: { [key: string]: string } };
       // console.log(`Parsed translations object:`, translations);
 
@@ -51,7 +51,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// 自定义 hook，用于方便访问语言上下文
+// Custom hook for easier access to language context
 export const useAppLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {

@@ -1,27 +1,27 @@
 "use client";
 
 import React, { useState } from 'react';
-import Header from '../components/Header'; // 引入 Header 组件
+import Header from '../components/Header'; // Import the Header component
 import NavBar from '../components/NavBar';
-import LanguageSelector from '../components/LanguageSelector'; // 引入语言选择组件
+import LanguageSelector from '../components/LanguageSelector'; // Import the Language Selector component
 import ProjectTree from '../components/ProjectTree';
-import DynamicBackground from '../components/DynamicBackground'; // 引入动态背景组件
+import DynamicBackground from '../components/DynamicBackground'; // Import the Dynamic Background component
 import WelcomingPage from '../components/WelcomingPage';
 import ProjectBanner from '@/components/ProjectBanner';
 import Footer from '@/components/Footer';
 
 const Page: React.FC = () => {
-  const [backgroundImage, setBackgroundImage] = useState<string | null>(null); // 用于管理背景状态
+  const [backgroundImage, setBackgroundImage] = useState<string | null>(null); // State to manage the background
 
   return (
     <>
-      <DynamicBackground backgroundImage={backgroundImage} /> {/* 动态背景 */}
-      <Header /> {/* 使用 Header 组件 */}
+      <DynamicBackground backgroundImage={backgroundImage} /> {/* Dynamic Background */}
+      <Header /> {/* Use the Header component */}
       <NavBar />
-      <LanguageSelector /> {/* 引入语言选择组件 */}
+      <LanguageSelector /> {/* Import the Language Selector component */}
       <WelcomingPage />
       <ProjectBanner />
-      <ProjectTree onHoverBackgroundChange={setBackgroundImage} /> {/* 传递背景更新回调 */}
+      <ProjectTree onHoverBackgroundChange={setBackgroundImage} /> {/* Pass callback to update the background */}
       <Footer backgroundColor="steelblue"/>
     </>
   );

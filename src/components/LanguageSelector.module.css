@@ -1,25 +1,25 @@
 /* src/components/LanguageSelector.module.css */
 .languageSelector {
-    z-index: 1050; /* 足够高以覆盖其他元素 */
+    z-index: 1050; /* High enough to cover other elements */
 }
 
 .languageButton {
-    color: white; /* 白色字体 */
-    font-weight: bold; /* 加粗字体 */
-    font-size: 16px; /* 字体大小 */
-    background-color: transparent; /* 背景透明 */
-    border: none; /* 去除边框 */
+    color: white; /* White text color */
+    font-weight: bold; /* Bold font */
+    font-size: 16px; /* Font size */
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove border */
 }
 
 .divider {
-    height: 24px; /* 分割线高度 */
-    width: 2px; /* 分割线宽度 */
-    background-color: white; /* 白色分割线 */
-    margin: 0 12px; /* 在分割线两边增加一些空间 */
+    height: 24px; /* Divider height */
+    width: 2px; /* Divider width */
+    background-color: white; /* White divider */
+    margin: 0 12px; /* Add some space around the divider */
 }
 
 @media (max-width: 768px) {
     .languageButton {
-        font-size: 12px; /* 较小的字体大小适用于移动设备 */
+        font-size: 12px; /* Smaller font size for mobile devices */
     }
 }

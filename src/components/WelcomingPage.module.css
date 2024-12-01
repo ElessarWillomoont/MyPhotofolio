@@ -1,11 +1,11 @@
 .container {
     width: 100vw;
     height: 100vh;
-    background-image: url('../public/images/background.jpg'); /* 替换为适当的背景图片路径 */
-    background-size: cover; /* 保持图片比例，填满视口 */
-    background-position: center; /* 图片居中显示 */
-    background-repeat: no-repeat; /* 不重复图片 */
-    overflow: hidden; /* 防止溢出 */
+    background-image: url('../public/images/background.jpg'); /* Replace with appropriate background image path */
+    background-size: cover; /* Maintain image aspect ratio and fill the viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    overflow: hidden; /* Prevent overflow */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,55 +13,55 @@
     position: relative;
 }
 
-/* 毛玻璃效果背景层 */
-/* 毛玻璃背景覆盖层 */
+/* Frosted glass effect background layer */
+/* Frosted glass background overlay */
 .backgroundOverlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1); /* 半透明白色背景 */
-    -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
-    backdrop-filter: blur(10px); /* 毛玻璃模糊效果 */
-    z-index: 1; /* 确保仅在背景图之上 */
-    pointer-events: none; /* 确保用户点击不会影响毛玻璃层 */
-    opacity: 0; /* 初始隐藏 */
-    transition: opacity 1s ease-in-out; /* 添加淡入效果 */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    backdrop-filter: blur(10px); /* Frosted glass blur effect */
+    z-index: 1; /* Ensure it is just above the background image */
+    pointer-events: none; /* Ensure clicks do not affect the frosted glass layer */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out; /* Add fade-in effect */
 }
 
 .backgroundOverlay.visible {
-    opacity: 1; /* 毛玻璃背景淡入 */
+    opacity: 1; /* Frosted glass background fades in */
 }
 
 .backgroundOverlay.visible {
-    opacity: 1; /* 毛玻璃背景淡入 */
+    opacity: 1; /* Frosted glass background fades in */
 }
 
-/* 签名样式 */
+/* Signature style */
 .signature {
-    width: 66%; /* 占据66%宽度 */
-    height: auto; /* 保持长宽比 */
-    opacity: 0; /* 初始不可见 */
-    transition: opacity 1s ease-in-out; /* 淡入动画 */
-    z-index: 2; /* 确保在毛玻璃层之上 */
+    width: 66%; /* Occupies 66% of the width */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out; /* Fade-in animation */
+    z-index: 2; /* Ensure it is above the frosted glass layer */
 }
 
 .fadeInComplete {
-    opacity: 1; /* 动画完成时完全可见 */
+    opacity: 1; /* Fully visible when the animation completes */
 }
 
-/* 欢迎词样式 */
+/* Welcome message style */
 .welcomeMessage {
     color: white;
-    font-size: clamp(1.5rem, 2vw, 3rem); /* 根据屏幕宽度动态调整字体大小 */
+    font-size: clamp(1.5rem, 2vw, 3rem); /* Dynamically adjust font size based on screen width */
     font-weight: bold;
     text-align: center;
-    opacity: 0; /* 初始隐藏 */
-    animation: fadeIn 1s forwards; /* 淡入动画 */
-    margin-top: 2vh; /* 调整欢迎词与签名的间距 */
-    max-width: 80%; /* 限制欢迎词最大宽度 */
-    z-index: 2; /* 确保在毛玻璃层之上 */
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+    margin-top: 2vh; /* Adjust the space between the welcome message and the signature */
+    max-width: 80%; /* Limit the max width of the welcome message */
+    z-index: 2; /* Ensure it is above the frosted glass layer */
 }
 
 @keyframes fadeIn {
@@ -70,16 +70,16 @@
     }
 }
 
-/* Scroll Down 提示样式 */
+/* Scroll Down prompt style */
 .scrollDown {
     position: absolute;
-    bottom: 5vh; /* 调整到页面底部的距离 */
-    left: 5vw; /* 靠左 */
-    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* 动态字体大小 */
+    bottom: 5vh; /* Adjust distance from the bottom of the page */
+    left: 5vw; /* Align to the left */
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Dynamically adjust font size */
     color: white;
     cursor: pointer;
-    animation: bounce 3s infinite; /* 跳动动画 */
-    z-index: 2; /* 确保在毛玻璃层之上 */
+    animation: bounce 3s infinite; /* Bouncing animation */
+    z-index: 2; /* Ensure it is above the frosted glass layer */
 }
 
 @keyframes bounce {
@@ -94,7 +94,7 @@
     }
 }
 
-/* 点击开始提示样式 */
+/* Click to start prompt style */
 .clickToStart {
     position: absolute;
     top: 50%;
@@ -104,7 +104,7 @@
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     padding: 1rem 2rem;
     border-radius: 8px;
     cursor: pointer;

@@ -1,5 +1,5 @@
 // src/components/LanguageLayout.tsx
-"use client"; // 确保这是一个客户端组件
+"use client"; // Ensure this is a client-side component
 
 import React from 'react';
 import { useAppLanguage } from '../context/LanguageContext';
@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 const LanguageLayout = ({ children }: { children: React.ReactNode }) => {
-  const { language } = useAppLanguage(); // 从 LanguageContext 获取当前语言
+  const { language } = useAppLanguage(); // Get the current language from LanguageContext
 
   return (
     <html lang={language}>

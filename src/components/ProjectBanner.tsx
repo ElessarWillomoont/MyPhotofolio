@@ -2,15 +2,15 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./ProjectBanner.module.css";
-import { useAppLanguage } from "../context/LanguageContext"; // 导入多语言支持逻辑
+import { useAppLanguage } from "../context/LanguageContext"; // Import multilingual support logic
 import defaultBackground from "../public/images/project_banner.jpg";
 import { StaticImageData } from "next/image";
 
 interface ProjectBannerProps {
-    backgroundImage?: StaticImageData; // 背景图片为可选项，默认为静态图片
-  }
+    backgroundImage?: StaticImageData; // Background image is optional, defaults to a static image
+}
   
-  const ProjectBanner: React.FC<ProjectBannerProps> = ({ backgroundImage = defaultBackground }) => {
+const ProjectBanner: React.FC<ProjectBannerProps> = ({ backgroundImage = defaultBackground }) => {
     const { language, getTranslations } = useAppLanguage();
   
     const defaultTranslations = useMemo(
@@ -39,13 +39,13 @@ interface ProjectBannerProps {
       <div
         className={styles.bannerContainer}
         style={{
-          backgroundImage: `url(${backgroundImage.src})`, // 使用静态导入图片的路径
+          backgroundImage: `url(${backgroundImage.src})`, // Use the path of the static imported image
         }}
       >
         <div className={styles.bannerOverlay}></div>
         <div className={styles.bannerText}>{translations.title}</div>
       </div>
     );
-  };
+};
   
-  export default ProjectBanner;
+export default ProjectBanner;

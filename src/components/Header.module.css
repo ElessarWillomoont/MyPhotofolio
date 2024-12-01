@@ -1,6 +1,5 @@
 .header {
-    height: 60px;  /* 设置高度 */
-    background-color: #f8f9fa;  /* 使用浅灰色背景 */
-    border-bottom: 1px solid #ddd;  /* 添加底部边框 */
-  }
-  
+  height: 60px;  /* Set height */
+  background-color: #f8f9fa;  /* Use light gray background */
+  border-bottom: 1px solid #ddd;  /* Add bottom border */
+}

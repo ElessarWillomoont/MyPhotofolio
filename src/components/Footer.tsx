@@ -6,8 +6,8 @@ import { useAppLanguage } from "../context/LanguageContext";
 import { StaticImageData } from "next/image";
 
 interface FooterProps {
-  backgroundImage?: StaticImageData; // 背景图片为可选项
-  backgroundColor?: string; // 背景颜色为可选项
+  backgroundImage?: StaticImageData; // Optional background image
+  backgroundColor?: string; // Optional background color
 }
 
 const Footer: React.FC<FooterProps> = ({ backgroundImage, backgroundColor = "#333" }) => {
@@ -15,7 +15,7 @@ const Footer: React.FC<FooterProps> = ({ backgroundImage, backgroundColor = "#33
 
   const defaultTranslations = useMemo(
     () => ({
-      lastUpdated: "Last updated at 29/Nov/2024", // 默认文本
+      lastUpdated: "Last updated at 29/Nov/2024", // Default text
     }),
     []
   );

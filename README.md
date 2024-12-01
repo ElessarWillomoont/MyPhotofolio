@@ -2,6 +2,10 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Before Everything:
+
+The inspiration comes from [https://kazuki-art.com/](https://kazuki-art.com/). The design and effects of this page are excellent, which is why I am trying to implement a similar one.
+
 ## Highlights:
 - Fully responsive design with excellent display performance on both wide and narrow screens.
 - A project tree designed based on a waterfall flow; the background changes dynamically when hovering over project cards.
@@ -11,13 +15,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - Construction of the project page.
 - Signature effect on the homepage.
 - Improved transition display effects.
+- Display the project name
+- finish the contract and personal introduction page
 
 
 ## Getting Started
 
-First, run the development server:
+First, volon the repo
+
+and then, run the development server:
 
 ```bash
+nmp install
+
 npm run dev
 # or
 yarn dev

@@ -2,17 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link"; // 引入 Link 组件
+import Link from "next/link"; // Import the Link component
 import styles from "./ProjectTree.module.css";
 import { useAppLanguage } from "../context/LanguageContext";
 
-// 静态导入项目图片
+// Static image imports for the projects
 import projectAImage from "../public/images/project_header/project-a.png";
 import projectBImage from "../public/images/project_header/project-b.png";
 import projectCImage from "../public/images/project_header/project-c.png";
 import defaultImage from "../public/images/project_header/working.webp";
 
-// 映射项目图片
+// Mapping project names to images
 const projectImages: { [key: string]: StaticImageData } = {
   "project-a": projectAImage,
   "project-b": projectBImage,
@@ -33,7 +33,7 @@ const projectImages: { [key: string]: StaticImageData } = {
   "project-q": defaultImage,
 };
 
-// 扩展项目列表
+// Expanding the projects list
 const projects = [
   { name: "project-a" },
   { name: "project-b" },
@@ -90,7 +90,7 @@ const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) =>
 
       while (index < projects.length) {
         const rowItems = [];
-        const spaces = Math.floor(columns / 2);
+        const spaces = Math.floor(columns / 2); // Random space count per row
         const spaceIndices = Array.from(
           { length: spaces },
           () => Math.floor(Math.random() * columns)
@@ -107,7 +107,7 @@ const ProjectTree: React.FC<ProjectTreeProps> = ({ onHoverBackgroundChange }) =>
               <Link
                 href={`/projects/${project.name}`}
                 key={project.name}
-                className={styles.projectCard} // 添加 Link 包裹卡片
+                className={styles.projectCard} // Wrap the card with Link
                 onMouseEnter={() =>
                   onHoverBackgroundChange(projectImages[project.name]?.src || null)
                 }

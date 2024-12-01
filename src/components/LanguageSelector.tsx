@@ -4,7 +4,7 @@
 import React from 'react';
 import { ButtonGroup, Button } from 'react-bootstrap';
 import { useAppLanguage } from '../context/LanguageContext';
-import styles from './LanguageSelector.module.css'; // 引入样式
+import styles from './LanguageSelector.module.css'; // Import styles
 
 const LanguageSelector: React.FC = () => {
     const { setLanguage } = useAppLanguage();

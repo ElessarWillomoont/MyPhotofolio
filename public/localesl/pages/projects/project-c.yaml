@@ -1,9 +1,9 @@
 en:
-  title: "Project B"
+  title: "Project C"
   description: "Description of Project B..."
 fr:
-  title: "Projet B"
+  title: "Projet C"
   description: "Description du Projet B..."
 zh:
-  title: "项目B"
-  description: "项目B的描述..."
+  title: "项目C"
+  description: "项目C的描述..."

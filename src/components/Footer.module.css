@@ -1,21 +1,20 @@
 /* Footer.module.css */
 .footerContainer {
-    width: 100vw;
-    height: 10vh; /* 占视口高度的 10% */
-    position: relative;
-    background-size: cover; /* 保持背景比例并填满容器 */
-    background-position: center; /* 居中显示背景 */
-    background-repeat: no-repeat; /* 不重复背景 */
-    display: flex;
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-    color: white; /* 白色字体 */
-    font-weight: bold; /* 加粗字体 */
-    font-size: clamp(0.8rem, 2vw, 1.5rem); /* 响应式字体大小 */
-    overflow: hidden; /* 防止超出容器 */
-  }
-  
-  .defaultBackground {
-    background-color: #333; /* 默认背景颜色 */
-  }
-  
+  width: 100vw;
+  height: 10vh; /* Takes up 10% of the viewport height */
+  position: relative;
+  background-size: cover; /* Maintain background aspect ratio and fill the container */
+  background-position: center; /* Center the background */
+  background-repeat: no-repeat; /* Do not repeat the background */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  color: white; /* White text color */
+  font-weight: bold; /* Bold font */
+  font-size: clamp(0.8rem, 2vw, 1.5rem); /* Responsive font size */
+  overflow: hidden; /* Prevent overflow outside the container */
+}
+
+.defaultBackground {
+  background-color: #333; /* Default background color */
+}

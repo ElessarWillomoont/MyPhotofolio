@@ -1,8 +1,8 @@
 .projectTreeWrapper {
     display: flex;
-    flex-direction: column; /* 支持垂直布局 */
-    justify-content: center; /* 确保网格容器水平居中 */
-    align-items: center; /* 确保网格内容垂直居中 */
+    flex-direction: column; /* Supports vertical layout */
+    justify-content: center; /* Ensures the grid container is centered horizontally */
+    align-items: center; /* Ensures the grid content is centered vertically */
     padding: 16px;
 }
 
@@ -10,21 +10,21 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
-    width: 66%; /* 默认占中间 66% */
-    max-width: 1000px; /* 设置最大宽度以避免过度扩展 */
-    margin: 0 auto; /* 确保网格居中 */
+    width: 66%; /* Defaults to occupy 66% of the width in the center */
+    max-width: 1000px; /* Sets a maximum width to prevent excessive expansion */
+    margin: 0 auto; /* Ensures the grid is centered */
 }
 
 @media (max-width: 768px) {
     .projectTreeRow {
-        width: 80%; /* 在小屏幕上减少两侧留白 */
+        width: 80%; /* Reduces the margin on small screens */
     }
 }
 
 @media (max-width: 480px) {
     .projectTreeRow {
-        width: 100%; /* 在非常小的屏幕上占满整个视口 */
-        grid-template-columns: 1fr; /* 强制单列布局 */
+        width: 100%; /* Occupies the entire viewport on very small screens */
+        grid-template-columns: 1fr; /* Forces single-column layout */
     }
 }
 
@@ -62,5 +62,5 @@
 }
 
 .spaceFiller {
-    visibility: hidden; /* 保留空间但不显示内容 */
+    visibility: hidden; /* Keeps space but hides content */
 }

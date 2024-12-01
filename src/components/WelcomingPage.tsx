@@ -7,7 +7,7 @@ import Image from "next/image";
 import signatureSVG from "../public/images/signature.svg";
 
 interface WelcomingPageProps {
-    fadeInDuration?: number; // 淡入效果持续时间，单位为毫秒
+    fadeInDuration?: number; // Duration of the fade-in effect, in milliseconds
 }
 
 const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) => {
@@ -18,12 +18,12 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
         clickToStart: "Click to Start",
     });
 
-    const [isDrawingComplete, setIsDrawingComplete] = useState(false); // 是否完成显示
-    const [hasUserClicked, setHasUserClicked] = useState(false); // 用户是否点击开始动画
-    const [isOverlayVisible, setIsOverlayVisible] = useState(false); // 控制毛玻璃背景显示
+    const [isDrawingComplete, setIsDrawingComplete] = useState(false); // Whether the drawing is complete
+    const [hasUserClicked, setHasUserClicked] = useState(false); // Whether the user has clicked to start the animation
+    const [isOverlayVisible, setIsOverlayVisible] = useState(false); // Controls the visibility of the frosted glass background
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // 加载翻译内容
+    // Load translation content
     useEffect(() => {
         const loadTranslations = async () => {
             const loadedTranslations = await getTranslations(
@@ -35,27 +35,27 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
         loadTranslations();
     }, [getTranslations, language, translations]);
 
-    // 淡入签名逻辑
+    // Fade-in signature logic
     const fadeInSignature = () => {
         setTimeout(() => {
             setIsDrawingComplete(true);
-        }, fadeInDuration); // 动画完成后更新状态
+        }, fadeInDuration); // Update state after animation completes
     };
 
-    // 用户点击事件
+    // User click event
     const handleUserClick = () => {
         if (!hasUserClicked) {
-            setHasUserClicked(true); // 设置用户已点击
-            setIsOverlayVisible(true); // 显示毛玻璃背景
-            fadeInSignature(); // 开始淡入
+            setHasUserClicked(true); // Set the user as clicked
+            setIsOverlayVisible(true); // Show the frosted glass background
+            fadeInSignature(); // Start fade-in
         } else if (!isDrawingComplete) {
-            setIsDrawingComplete(true); // 跳过动画
+            setIsDrawingComplete(true); // Skip the animation
         }
     };
 
     return (
         <div className={styles.container} ref={containerRef} onClick={handleUserClick}>
-            {/* 毛玻璃背景覆盖层 */}
+            {/* Frosted glass background overlay */}
             <div
                 className={`${styles.backgroundOverlay} ${
                     isOverlayVisible ? styles.visible : ""
@@ -63,7 +63,7 @@ const WelcomingPage: React.FC<WelcomingPageProps> = ({ fadeInDuration = 1000 }) 
             ></div>
             {!hasUserClicked && (
                 <div className={styles.clickToStart}>
-                    {translations.clickToStart} {/* 点击提示 */}
+                    {translations.clickToStart} {/* Click to start prompt */}
                 </div>
             )}
             {hasUserClicked && (

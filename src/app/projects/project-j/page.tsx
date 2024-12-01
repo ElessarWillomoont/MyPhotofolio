@@ -4,7 +4,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useAppLanguage } from '../../../context/LanguageContext';
 import styles from './ProjectPage.module.css';
-import LanguageSelector from '../../../components/LanguageSelector'; // 引入语言选择组件
+import LanguageSelector from '../../../components/LanguageSelector';
 import NavBar from '../../../components/NavBar';
 
 const ProjectAPage: React.FC = () => {
@@ -27,7 +27,7 @@ const ProjectAPage: React.FC = () => {
 
   return (
     <div className={styles.projectPage}>
-      <LanguageSelector /> {/* 引入语言选择组件 */}
+      <LanguageSelector /> 
       <NavBar />
       <h1>{translations.title}</h1>
       <p>{translations.description}</p>
