@@ -2,16 +2,16 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Before Everything:
+# Before Everything:
 
 The inspiration comes from [https://kazuki-art.com/](https://kazuki-art.com/). The design and effects of this page are excellent, which is why I am trying to implement a similar one.
 
-## Highlights:
+# Highlights:
 - Fully responsive design with excellent display performance on both wide and narrow screens.
 - A project tree designed based on a waterfall flow; the background changes dynamically when hovering over project cards.
 - Built-in translation functionality applied site-wide (I know Next.js provides similar functionality, but it’s difficult to use, so I implemented my own).
 
-## Todo:
+# Todo:
 - Construction of the project page.
 - Signature effect on the homepage.
 - Improved transition display effects.
@@ -19,7 +19,7 @@ The inspiration comes from [https://kazuki-art.com/](https://kazuki-art.com/). T
 - finish the contract and personal introduction page
 
 
-## Getting Started
+# Getting Started
 
 First, volon the repo
 
@@ -44,7 +44,7 @@ You can start editing the page by modifying app/page.tsx. The page auto-updates 
 
 This project uses next/font to automatically optimize and load Geist, a new font family for Vercel.
 
-## Multi-Language Support
+# Multi-Language Support
 
 This project includes a multi-language setup that allows different components or pages to load translations dynamically based on the user's selected language. Here's a step-by-step guide on how to use and extend the multi-language functionality.
 
@@ -87,7 +87,7 @@ Inside NavBar.json, structure translations by language, e.g.:
 }
 ```
 
-### Using getTranslations in Your Component:
+## Using getTranslations in Your Component:
 
 Import useAppLanguage from LanguageContext.
 Use getTranslations to load translations dynamically for the component based on the current language.
@@ -140,21 +140,24 @@ src/
     └── LanguageContext.tsx
 ```
 
-## Project Tree and Dynamic Background
+## Troubleshooting
+If the translation file is missing, a warning will appear in the console, and the application will fall back to default translations defined within the component.
+
+# Project Tree and Dynamic Background
 
 This project implemented a simple project tree and dynamic background logic(see each component in the component folder), to allow users add their project and orgnize dynamically base on user device, when you move your mouse above the project card, the background will be changed into the project image.
 
-## Footer Component
+# Footer Component
 
 The `Footer` component is a reusable component designed to display a footer with configurable background options (image or color) and multi-language support. It is responsive and ensures the content remains centered with dynamic text resizing.
 
-### Features
+## Features
 
 - **Customizable Background**: Supports background images or colors, with a default color fallback.
 - **Multi-Language Support**: Dynamically loads translations from YAML files based on the current language context.
 - **Responsive Design**: Automatically adjusts font size and ensures content remains centered.
 
-### Usage
+## Usage
 
 To use the `Footer` component, import it into your page or layout file and provide the desired properties:
 
@@ -179,6 +182,3 @@ const ExamplePage: React.FC = () => {
 
 export default ExamplePage;
 ```
-
-## Troubleshooting
-If the translation file is missing, a warning will appear in the console, and the application will fall back to default translations defined within the component.
