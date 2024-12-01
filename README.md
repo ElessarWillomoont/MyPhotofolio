@@ -2,6 +2,17 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Highlights:
+- Fully responsive design with excellent display performance on both wide and narrow screens.
+- A project tree designed based on a waterfall flow; the background changes dynamically when hovering over project cards.
+- Built-in translation functionality applied site-wide (I know Next.js provides similar functionality, but it’s difficult to use, so I implemented my own).
+
+## Todo:
+- Construction of the project page.
+- Signature effect on the homepage.
+- Improved transition display effects.
+
+
 ## Getting Started
 
 First, run the development server:
