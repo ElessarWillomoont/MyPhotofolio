@@ -141,7 +141,7 @@
     }
 
     .scrollDown {
-        bottom: 15vh; /* Raise the scroll prompt to avoid mobile floating bars */
+        bottom: 20vh; /* Raise the scroll prompt to avoid mobile floating bars */
         font-size: 1.2rem; /* Increase font size for visibility on smaller screens */
     }
 
