@@ -1,16 +1,9 @@
 {
     "redirects": [
       {
-        "source": "/:path*",
-        "has": [
-          {
-            "type": "path",
-            "value": "/language"
-          }
-        ],
-        "destination": "/",
-        "permanent": true
+        "source": "/language/:path*",  
+        "destination": "/",           
+        "permanent": true             
       }
     ]
   }
-  
