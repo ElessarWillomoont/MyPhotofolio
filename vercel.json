@@ -1,9 +1,10 @@
 {
-    "redirects": [
+    "rewrites": [
       {
-        "source": "/language/:path*",  
-        "destination": "/",           
-        "permanent": true             
+        "source": "/:path*",
+        "destination": "/:path*"
       }
-    ]
+    ],
+    "redirects": []
   }
+  
