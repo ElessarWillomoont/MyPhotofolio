@@ -14,7 +14,6 @@
 }
 
 /* Frosted glass effect background layer */
-/* Frosted glass background overlay */
 .backgroundOverlay {
     position: absolute;
     top: 0;
@@ -28,10 +27,6 @@
     pointer-events: none; /* Ensure clicks do not affect the frosted glass layer */
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease-in-out; /* Add fade-in effect */
-}
-
-.backgroundOverlay.visible {
-    opacity: 1; /* Frosted glass background fades in */
 }
 
 .backgroundOverlay.visible {
@@ -74,12 +69,14 @@
 .scrollDown {
     position: absolute;
     bottom: 10vh; /* Adjust distance from the bottom of the page */
-    left: 10vw; /* Align to the left */
+    left: 5vw; /* Center horizontally */
+    transform: translateX(-50%);
     font-size: clamp(1rem, 3vw, 3rem); /* Dynamically adjust font size */
     color: white;
     cursor: pointer;
     animation: bounce 3s infinite; /* Bouncing animation */
     z-index: 2; /* Ensure it is above the frosted glass layer */
+    text-align: center;
 }
 
 @keyframes bounce {
@@ -117,5 +114,44 @@
     }
     50% {
         transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Wide screen adjustments (e.g., desktop, tablet) */
+@media (min-width: 768px) {
+    .container {
+        justify-content: center; /* Center content for wide screens */
+    }
+
+    .scrollDown {
+        bottom: 3vh; /* Lower the scroll prompt */
+        font-size: 2rem; /* Adjust font size for wider screens */
+    }
+
+    .signature {
+        width: 50%; /* Increase signature size for larger screens */
+    }
+}
+
+/* Narrow screen adjustments (e.g., mobile) */
+@media (max-width: 768px) {
+    .container {
+        justify-content: flex-start; /* Align content towards the top */
+        padding-top: 10vh; /* Add padding to push content down */
+    }
+
+    .scrollDown {
+        bottom: 15vh; /* Raise the scroll prompt to avoid mobile floating bars */
+        font-size: 1.2rem; /* Increase font size for visibility on smaller screens */
+    }
+
+    .signature {
+        width: 75%; /* Adjust signature size for smaller screens */
+        margin-top: 10vh; /* Place signature in the top third */
+    }
+
+    .welcomeMessage {
+        font-size: clamp(1.2rem, 3vw, 3rem); /* Adjust font size */
+        margin-top: 5vh; /* Adjust spacing below the signature */
     }
 }
