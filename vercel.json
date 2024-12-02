@@ -1,0 +1,16 @@
+{
+    "redirects": [
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "path",
+            "value": "/language"
+          }
+        ],
+        "destination": "/",
+        "permanent": true
+      }
+    ]
+  }
+  
