@@ -1,107 +1,137 @@
 .aboutPage {
-    background-color: powderblue; /* 全屏粉蓝色背景 */
+    background-color: #f0f8ff; /* 全屏粉蓝色背景 */
     min-height: 100vh; /* 确保背景覆盖整个视口高度 */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* 垂直布局 */
+    align-items: center; /* 居中 */
     padding: 20px;
+    gap: 20px; /* 子元素之间增加间距 */
 }
 
-/* 自定义时间线容器 */
-.custom-timeline {
+/* 自我介绍样式 */
+.custom-intro {
+    text-align: center;
+    padding: 20px;
+    background-color: #87ceeb;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* 联系方式样式 */
+.custom-contact {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #87ceeb;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #171717;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* 时间线容器样式 */
+.timeline {
     position: relative;
-    margin: 0 auto;
-    padding: 20px;
-    width: 80%; /* 控制时间线宽度 */
+    margin: 20px auto;
+    width: 80%;
     max-width: 800px;
-    background-color: #ffffff; /* 白色背景 */
-    border-radius: 10px; /* 圆角效果 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    padding: 20px 0;
 }
 
-/* 自定义时间线主轴 */
-.custom-timeline::before {
-    content: '';
+/* 时间线的主轴 */
+.timeline::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
     height: 100%;
-    background: #ffffff; /* 时间线主轴颜色为白色 */
+    background: #87ceeb; /* 粉蓝色主轴 */
 }
 
-/* 自定义时间线条目 */
-.custom-timeline-item {
+/* 单个时间线条目样式 */
+.timelineItem {
     position: relative;
     margin: 20px 0;
     width: calc(50% - 20px);
     padding: 15px;
-    background: #ffffff; /* 时间线条目背景为白色 */
-    border-radius: 8px; /* 添加圆角 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    border: 2px solid #87ceeb; /* 粉蓝色边框 */
-    color: #171717; /* 字体颜色 */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #87ceeb;
+    color: #171717;
 }
 
-/* 时间线条目左侧 */
-.custom-timeline-item.left {
+/* 左侧条目 */
+.timelineItem.left {
     float: left;
     clear: both;
+    text-align: right; /* 内容右对齐 */
 }
 
-/* 时间线条目右侧 */
-.custom-timeline-item.right {
+/* 右侧条目 */
+.timelineItem.right {
     float: right;
     clear: both;
+    text-align: left; /* 内容左对齐 */
 }
 
-/* 自定义时间点 */
-.custom-timeline-item::before {
-    content: '';
+/* 时间点样式 */
+.timelineItem::before {
+    content: "";
     position: absolute;
     top: 50%;
     width: 20px;
     height: 20px;
-    background: #ffffff; /* 时间点颜色为白色 */
-    border: 2px solid #87ceeb; /* 粉蓝色边框 */
+    background: #ffffff;
+    border: 2px solid #87ceeb;
     border-radius: 50%;
     transform: translateY(-50%);
 }
 
-/* 时间点的位置 */
-.custom-timeline-item.left::before {
+/* 左侧时间点 */
+.timelineItem.left::before {
     right: -30px;
 }
 
-.custom-timeline-item.right::before {
+/* 右侧时间点 */
+.timelineItem.right::before {
     left: -30px;
 }
 
-/* 时间线标题 */
-.custom-timeline-title {
+/* 时间标题样式 */
+.timelineTitle {
     font-weight: bold;
     font-size: 1.2rem;
-    color: #87ceeb; /* 粉蓝色标题 */
+    color: #87ceeb;
     margin-bottom: 10px;
 }
 
-/* 时间线内容 */
-.custom-timeline-content {
+/* 内容样式 */
+.timelineContent {
     line-height: 1.6;
     color: #171717;
 }
 
-/* 响应式优化 */
+/* 响应式样式调整 */
 @media (max-width: 768px) {
-    .custom-timeline-item {
+    .timelineItem {
         float: none;
         width: 100%;
         margin: 10px 0;
+        text-align: center;
     }
 
-    .custom-timeline-item::before {
-        left: calc(50% - 10px);
-        right: auto;
+    .timelineItem::before {
+        display: none; /* 隐藏圆点 */
+    }
+
+    .timeline::before {
+        display: none; /* 隐藏时间线主轴 */
     }
 }

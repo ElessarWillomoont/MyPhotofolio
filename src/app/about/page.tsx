@@ -3,8 +3,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useAppLanguage } from "../../context/LanguageContext";
 import styles from "./AboutPage.module.css";
-import LanguageSelector from '../../components/LanguageSelector';
-import NavBar from '../../components/NavBar';
+import LanguageSelector from "../../components/LanguageSelector";
+import NavBar from "../../components/NavBar";
 
 const AboutPage: React.FC = () => {
     const { language, getTranslations } = useAppLanguage();
@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => {
             {
                 year: "2020",
                 title: "Graduated and Joined TÜV Rheinland Group",
-                content: "Began working as a Test Engineer in the photovoltaic laboratory, specializing in mechanical load, hail impact, hot-spot durability, and power curve testing.",
+                content: "Worked as a Test Engineer specializing in photovoltaic laboratory testing.",
             },
             {
                 year: "2022",
@@ -34,20 +34,10 @@ const AboutPage: React.FC = () => {
                 content: "Supported laboratory expansion and operational setup in Suzhou.",
             },
             {
-                year: "2022 August - 2023",
-                title: "Coordinated Laboratory Setup",
-                content: "Managed communication and coordination during the construction of the Yangtze River Delta Center.",
-            },
-            {
                 year: "2023 September",
                 title: "Started MS in Creative Technology at ESILV",
-                content: "Focused on project-based learning, covering areas such as AI, prototyping, PCB design, and coding.",
+                content: "Focused on project-based learning in AI and prototyping.",
             },
-            // {
-            //     year: "2024",
-            //     title: "Improving French Language Proficiency",
-            //     content: "Began engaging with French-speaking communities to enhance language skills.",
-            // },
         ],
     }), []);
 
@@ -65,19 +55,30 @@ const AboutPage: React.FC = () => {
         <div className={styles.aboutPage}>
             <NavBar />
             <LanguageSelector />
-            <div className={styles["custom-timeline"]}>
+            {/* 自我介绍 */}
+            <div className={styles["custom-intro"]}>
+                <h2>Self-Introduction</h2>
+                <p>{translations.selfIntroduction}</p>
+            </div>
+            {/* 联系方式 */}
+            <div className={styles["custom-contact"]}>
+                <h3>Contact Information</h3>
+                <pre>{translations.contact}</pre>
+            </div>
+            {/* 时间线 */}
+            <div className={styles.timeline}>
                 {translations.timeline
                     .slice()
                     .reverse()
                     .map((item, index) => (
                         <div
                             key={index}
-                            className={`${styles["custom-timeline-item"]} ${
+                            className={`${styles.timelineItem} ${
                                 index % 2 === 0 ? styles.left : styles.right
                             }`}
                         >
-                            <div className={styles["custom-timeline-title"]}>{item.year}</div>
-                            <div className={styles["custom-timeline-content"]}>
+                            <div className={styles.timelineTitle}>{item.year}</div>
+                            <div className={styles.timelineContent}>
                                 <strong>{item.title}</strong>
                                 <p>{item.content}</p>
                             </div>
