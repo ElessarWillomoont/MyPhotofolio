@@ -9,10 +9,10 @@ const nextConfig = {
 
   // Commented out i18n configuration because it conflicts with static export
   
-  i18n: {
-    locales: ['en', 'fr', 'zh'], // Supported languages (e.g., English, French, Chinese)
-    defaultLocale: 'en',         // Default language
-  },
+  // i18n: {
+  //   locales: ['en', 'fr', 'zh'], // Supported languages (e.g., English, French, Chinese)
+  //   defaultLocale: 'en',         // Default language
+  // },
   
 
   webpack(config, { isServer }) {
