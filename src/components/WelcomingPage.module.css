@@ -54,12 +54,12 @@
 /* Welcome message style */
 .welcomeMessage {
     color: white;
-    font-size: clamp(1.5rem, 2vw, 3rem); /* Dynamically adjust font size based on screen width */
+    font-size: clamp(2rem, 5vw, 5rem); /* Dynamically adjust font size based on screen width */
     font-weight: bold;
     text-align: center;
     opacity: 0; /* Initially hidden */
     animation: fadeIn 1s forwards; /* Fade-in animation */
-    margin-top: 2vh; /* Adjust the space between the welcome message and the signature */
+    margin-top: 5vh; /* Adjust the space between the welcome message and the signature */
     max-width: 80%; /* Limit the max width of the welcome message */
     z-index: 2; /* Ensure it is above the frosted glass layer */
 }
@@ -73,9 +73,9 @@
 /* Scroll Down prompt style */
 .scrollDown {
     position: absolute;
-    bottom: 5vh; /* Adjust distance from the bottom of the page */
-    left: 5vw; /* Align to the left */
-    font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Dynamically adjust font size */
+    bottom: 10vh; /* Adjust distance from the bottom of the page */
+    left: 10vw; /* Align to the left */
+    font-size: clamp(1rem, 3vw, 3rem); /* Dynamically adjust font size */
     color: white;
     cursor: pointer;
     animation: bounce 3s infinite; /* Bouncing animation */
