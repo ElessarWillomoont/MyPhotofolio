@@ -7,6 +7,7 @@ import styles from './ProjectPage.module.css';
 import LanguageSelector from '../../../components/LanguageSelector'; // Import the Language Selector component
 import NavBar from '../../../components/NavBar';
 
+
 const ProjectAPage: React.FC = () => {
   const { getTranslations } = useAppLanguage();
   

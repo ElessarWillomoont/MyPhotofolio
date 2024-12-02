@@ -1,0 +1,83 @@
+﻿en:
+  selfIntroduction: "I'm a fifth-year ESILV engineering student focused on AI and cognitive science."
+  contact: |
+    Email: yedong.wu@edu.devinci.fr
+    LinkedIn: https://linkedin.com/in/yedong-wu
+  timeline:
+    - year: "2016"
+      title: "Entered Shanghai Institute of Technology"
+      content: "Began studying Electrical Engineering and Automation."
+    - year: "2018 August"
+      title: "PLC Training at Siemens Headquarters, Nuremberg"
+      content: "Focused on advanced PLC programming techniques and automation systems."
+    - year: "2020"
+      title: "Graduated and Joined TÜV Rheinland Group"
+      content: "Began working as a Test Engineer in the photovoltaic laboratory, specializing in mechanical load, hail impact, hot-spot durability, and power curve testing."
+    - year: "2022"
+      title: "Transferred to TÜV Rheinland Yangtze River Delta Center"
+      content: "Supported laboratory expansion and operational setup in Suzhou."
+    - year: "2022 August - 2023"
+      title: "Coordinated Laboratory Setup"
+      content: "Managed communication and coordination during the construction of the Yangtze River Delta Center."
+    - year: "2023 September"
+      title: "Started MS in Creative Technology at ESILV"
+      content: "Focused on project-based learning, covering areas such as AI, prototyping, PCB design, and coding."
+    # - year: "2024"
+    #   title: "Improving French Language Proficiency"
+    #   content: "Began engaging with French-speaking communities to enhance language skills."
+
+zh:
+  selfIntroduction: "我是ESILV五年级的工程学生，专注于人工智能与认知科学。"
+  contact: |
+    邮箱: yedong.wu@edu.devinci.fr
+    领英: https://linkedin.com/in/yedong-wu
+  timeline:
+    - year: "2016"
+      title: "进入上海应用技术大学"
+      content: "开始学习电气工程及其自动化。"
+    - year: "2018年8月"
+      title: "纽伦堡西门子总部的PLC培训"
+      content: "专注于高级PLC编程技术和自动化系统。"
+    - year: "2020年"
+      title: "毕业并加入TÜV莱茵集团"
+      content: "在光伏实验室担任测试工程师，主要负责机械载荷、冰雹冲击、热斑耐久性和功率曲线测试。"
+    - year: "2022年"
+      title: "转岗至TÜV莱茵长三角中心"
+      content: "支持实验室扩建和苏州新中心的运营设置。"
+    - year: "2022年8月 - 2023年"
+      title: "协调实验室建设"
+      content: "在长三角中心建设过程中，负责沟通与协调工作。"
+    - year: "2023年9月"
+      title: "进入ESILV攻读Creative Technology硕士"
+      content: "专注于项目驱动的学习，包括人工智能、原型设计、PCB设计和编程。"
+    # - year: "2024年"
+    #   title: "提高法语水平"
+    #   content: "开始参与法语社区活动，提升语言技能。"
+
+fr:
+  selfIntroduction: "Je suis étudiant en cinquième année à ESILV, spécialisé en IA et sciences cognitives."
+  contact: |
+    Email : yedong.wu@edu.devinci.fr
+    LinkedIn : https://linkedin.com/in/yedong-wu
+  timeline:
+    - year: "2016"
+      title: "Entré à l'Institut de Technologie de Shanghai"
+      content: "Début des études en génie électrique et automatisation."
+    - year: "Août 2018"
+      title: "Formation PLC au siège de Siemens, Nuremberg"
+      content: "Concentration sur les techniques avancées de programmation PLC et les systèmes d'automatisation."
+    - year: "2020"
+      title: "Diplômé et rejoint le groupe TÜV Rheinland"
+      content: "Commencé en tant qu'ingénieur test dans le laboratoire photovoltaïque, spécialisé en charges mécaniques, impact de grêle, durabilité des points chauds et tests de courbe de puissance."
+    - year: "2022"
+      title: "Transfert au centre du Delta du Yangtsé de TÜV Rheinland"
+      content: "Soutien à l'expansion du laboratoire et mise en place opérationnelle à Suzhou."
+    - year: "Août 2022 - 2023"
+      title: "Coordination de la construction du laboratoire"
+      content: "Gestion de la communication et coordination pendant la construction du centre du Delta du Yangtsé."
+    - year: "Septembre 2023"
+      title: "Commencé un Master en Creative Technology à ESILV"
+      content: "Concentration sur l'apprentissage basé sur des projets, couvrant l'IA, le prototypage, la conception PCB et le codage."
+    # - year: "2024"
+    #   title: "Amélioration de la maîtrise du français"
+    #   content: "Engagement dans des communautés francophones pour améliorer les compétences linguistiques."
