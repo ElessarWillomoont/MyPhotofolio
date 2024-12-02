@@ -9,7 +9,7 @@ import NavBar from "../../components/NavBar";
 const AboutPage: React.FC = () => {
     const { language, getTranslations } = useAppLanguage();
 
-    const defaultTranslations = useMemo(() => ({
+    const defaultTranslations = useMemo<any>(() => ({
         selfIntroduction: "I'm a fifth-year ESILV engineering student focused on AI and cognitive science.",
         contact: "Email: yedong.wu@edu.devinci.fr / LinkedIn: https://linkedin.com/in/yedong-wu",
         timeline: [
@@ -46,10 +46,24 @@ const AboutPage: React.FC = () => {
     useEffect(() => {
         const loadTranslations = async () => {
             const loadedTranslations = await getTranslations("/components/AboutPage", defaultTranslations);
-            setTranslations(loadedTranslations);
+            
+            // 检查 timeline 数据的类型，并确保数据结构正确
+            const processedTranslations = {
+                ...defaultTranslations,
+                ...loadedTranslations,
+                timeline: Array.isArray(loadedTranslations.timeline)
+                    ? loadedTranslations.timeline.map((item: any) => ({
+                          year: item.year || "",
+                          title: item.title || "",
+                          content: item.content || "",
+                      }))
+                    : defaultTranslations.timeline,
+            };
+            
+            setTranslations(processedTranslations);
         };
         loadTranslations();
-    }, [getTranslations, defaultTranslations, language]);
+    }, [defaultTranslations, getTranslations, language]);
 
     return (
         <div className={styles.aboutPage}>
@@ -70,20 +84,34 @@ const AboutPage: React.FC = () => {
                 {translations.timeline
                     .slice()
                     .reverse()
-                    .map((item, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.timelineItem} ${
-                                index % 2 === 0 ? styles.left : styles.right
-                            }`}
-                        >
-                            <div className={styles.timelineTitle}>{item.year}</div>
-                            <div className={styles.timelineContent}>
-                                <strong>{item.title}</strong>
-                                <p>{item.content}</p>
-                            </div>
-                        </div>
-                    ))}
+                    .map(
+                        (
+                            item: {
+                                year: string | number | bigint | boolean | React.ReactNode;
+                                title: string | number | bigint | boolean | React.ReactNode;
+                                content: string | number | bigint | boolean | React.ReactNode;
+                            },
+                            index: React.Key | null | undefined
+                        ) => {
+                            // 显式转换 index 为数字类型
+                            const numericIndex = Number(index);
+
+                            return (
+                                <div
+                                    key={numericIndex} // 使用转换后的数字作为 key
+                                    className={`${styles.timelineItem} ${
+                                        numericIndex % 2 === 0 ? styles.left : styles.right
+                                    }`}
+                                >
+                                    <div className={styles.timelineTitle}>{item.year}</div>
+                                    <div className={styles.timelineContent}>
+                                        <strong>{item.title}</strong>
+                                        <p>{item.content}</p>
+                                    </div>
+                                </div>
+                            );
+                        }
+                    )}
             </div>
         </div>
     );

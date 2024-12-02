@@ -1,5 +1,5 @@
 .aboutPage {
-    background-color: #f0f8ff; /* 全屏粉蓝色背景 */
+    background-color: powderblue; /* 全屏粉蓝色背景 */
     min-height: 100vh; /* 确保背景覆盖整个视口高度 */
     display: flex;
     flex-direction: column; /* 垂直布局 */
