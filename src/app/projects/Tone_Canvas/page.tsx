@@ -4,6 +4,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useAppLanguage } from "../../../context/LanguageContext"; // Context for translations
 import NavBar from "../../../components/NavBar"; // Navigation Bar
 import styles from "./ProjectPage.module.css"; // CSS module
+import LanguageSelector from '../../../components/LanguageSelector';
+
 
 const ToneCanvasPage: React.FC = () => {
   const { getTranslations } = useAppLanguage();
@@ -51,6 +53,7 @@ const ToneCanvasPage: React.FC = () => {
   return (
     <div className={styles.projectPage}>
       <NavBar />
+      <LanguageSelector /> 
       <header className={styles.header}>
         <h1>{translations.title}</h1>
         <div className={styles.skills}>
