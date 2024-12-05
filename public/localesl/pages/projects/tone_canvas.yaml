@@ -1,0 +1,119 @@
+en:
+  title: "Tone Canvas: An Interactive Learning Tool"
+  description: |
+    The learning of tones and intonation is a crucial yet challenging aspect of language acquisition, 
+    particularly for learners whose native language lacks lexical tonal features but who must learn a 
+    language that includes such characteristics. Correctly recognizing and imitating tones and intonation 
+    poses a significant difficulty for second language (L2) learners. This paper presents a cross-platform, 
+    multimodal, and embodied interactive learning tool called Tone Canvas, which aims to assist users in 
+    better learning tones and intonation through a combination of visual, auditory, and kinesthetic interactions 
+    (such as touch, gesture drawing). The system is built on modern web technologies, allowing it to support 
+    multiple devices while providing users with the freedom to explore tone and intonation learning at their own pace.
+  contextAndBackground:
+    title: "Context and Background"
+    content: |
+      The study of tone and intonation in language learning is increasingly becoming an intriguing research field. 
+      For languages without lexical-level tonal features, such as English and French, intonation can entirely change 
+      a sentence’s meaning. This poses challenges for non-native learners, as seen in Dr. Xiao XIAO's research on 
+      Performative Vocal Synthesis (PVS). Additionally, in tonal languages like Mandarin, tonal information at the 
+      word level is critical for understanding vocabulary, further complicating the learning process for foreign 
+      language learners. Multimodal learning theories, such as those proposed by Mayer Richard, indicate that 
+      combining visual, auditory, and kinesthetic interactions can enhance learning by reducing cognitive load 
+      across channels.
+  problemStatement:
+    title: "Problem Statement and Motivation"
+    content: |
+      Learning tones and intonation presents significant cognitive challenges. Excessive input types can overload 
+      learners, as noted in Wenwen Li's research. The proposed system seeks to address this by distributing information 
+      across visual, auditory, and kinesthetic channels to prevent overload. Gesture-based controls, inspired by 
+      Dr. Xiao XIAO's work, aim to implement embodied interactions, offering a novel experience. The system is 
+      designed to be simple, clear, and cross-platform, accessible on smartphones and suitable for diverse user groups.
+  contribution:
+    title: "My Contribution"
+    content: |
+      The primary contribution is building a robust, cross-platform system architecture for multimodal learning. 
+      This includes gesture-based input handling, real-time visual feedback, and device compatibility. The system's 
+      design ensures accessibility and ease of use for learners of varying levels, offering them the freedom to 
+      explore tones and intonation at their own pace.
+  skills: 
+    title: "Skills Applied"
+    list:
+      - "React"
+      - "Next.js"
+      - "TypeScript"
+      - "Multimodal Interaction"
+      - "Gesture-based Controls"
+      - "Cross-Platform Development"
+      - "User-Centered Design"
+
+fr:
+  title: "Tone Canvas : Un outil interactif d'apprentissage"
+  description: |
+    L'apprentissage des tons et de l'intonation est un aspect crucial mais difficile de l'acquisition des langues, 
+    en particulier pour les apprenants dont la langue maternelle ne possède pas de caractéristiques tonales lexicales. 
+    Ce projet présente un outil interactif appelé Tone Canvas, conçu pour aider les utilisateurs à mieux comprendre 
+    les tons et l'intonation grâce à une combinaison d'interactions visuelles, auditives et kinesthésiques 
+    (comme le dessin par geste). Le système est construit avec des technologies web modernes, prenant en charge 
+    plusieurs appareils pour offrir une expérience d'apprentissage flexible.
+  contextAndBackground:
+    title: "Contexte et arrière-plan"
+    content: |
+      L'étude des tons et de l'intonation dans l'apprentissage des langues devient un domaine de recherche fascinant. 
+      Pour des langues comme l'anglais et le français, sans tonalité lexicale, l'intonation peut changer le sens d'une 
+      phrase, ce qui complique l'apprentissage pour les non-natifs. Pour les langues tonales comme le mandarin, la 
+      tonalité est essentielle pour comprendre le vocabulaire. Les théories d'apprentissage multimodal, comme celles 
+      de Mayer Richard, soulignent que la combinaison d'entrées visuelles, auditives et kinesthésiques peut réduire 
+      la charge cognitive et améliorer les résultats.
+  problemStatement:
+    title: "Énoncé du problème et motivation"
+    content: |
+      Apprendre les tons et l'intonation pose des défis cognitifs importants. Une surcharge d'informations peut freiner 
+      l'apprentissage, comme l'indique la recherche de Wenwen Li. Le système proposé vise à répartir les informations 
+      sur différents canaux pour éviter cette surcharge, tout en intégrant des contrôles basés sur les gestes pour une 
+      interaction incarnée. Le design est simple, clair et adapté à une large gamme d'utilisateurs, optimisé pour une 
+      compatibilité multiplateforme.
+  contribution:
+    title: "Ma contribution"
+    content: |
+      La contribution principale est de développer une architecture robuste pour un apprentissage multimodal, comprenant 
+      la gestion des gestes, le retour visuel en temps réel et la compatibilité avec plusieurs appareils. Le système est 
+      conçu pour garantir une accessibilité et une facilité d'utilisation pour divers apprenants.
+  skills:
+    title: "Compétences appliquées"
+    list:
+      - "React"
+      - "Next.js"
+      - "TypeScript"
+      - "Interaction multimodale"
+      - "Contrôles gestuels"
+      - "Développement multiplateforme"
+      - "Design centré sur l'utilisateur"
+
+zh:
+  title: "Tone Canvas：交互式学习工具"
+  description: |
+    声调和语调的学习是语言学习中的一个重要但具有挑战性的方面，特别是对母语缺乏词汇层次声调特征的学习者来说。Tone Canvas 
+    是一个多平台、多模态的交互式学习工具，通过结合视觉、听觉和动觉交互（如手势绘图）来帮助用户更好地学习声调和语调。该系统基于现代
+    Web 技术构建，支持多种设备，并允许用户以自己的节奏探索声调和语调学习。
+  contextAndBackground:
+    title: "背景与相关研究"
+    content: |
+      声调和语调的研究正在成为一个越来越有趣的语言学习领域。对于英语和法语等没有词汇声调的语言，语调会改变句子的含义，这对非母语学习者来说是一个挑战。对于汉语这样的声调语言，声调信息在理解词汇方面起着关键作用。Mayer Richard 的多模态学习理论表明，视觉、听觉和动觉的结合可以有效降低认知负担并提高学习效果。
+  problemStatement:
+    title: "问题陈述与动机"
+    content: |
+      声调和语调的学习会带来显著的认知挑战。过多的输入类型可能会增加学习者的认知负担，正如 Wenwen Li 的研究指出的那样。提出的系统通过将信息分散到不同通道来避免过载，同时结合基于手势的交互，为用户提供一种新颖的学习体验。该系统设计简单明了，适合多样化用户，并优化了跨平台的兼容性。
+  contribution:
+    title: "我的贡献"
+    content: |
+      我的主要贡献是建立一个稳健的跨平台系统架构，用于支持多模态学习，包括手势输入处理、实时视觉反馈和设备兼容性。系统的设计确保了对不同层次学习者的可访问性和易用性，让他们能够按照自己的节奏探索声调和语调的学习。
+  skills:
+    title: "应用技能"
+    list:
+      - "React"
+      - "Next.js"
+      - "TypeScript"
+      - "多模态交互"
+      - "基于手势的控制"
+      - "跨平台开发"
+      - "以用户为中心的设计"

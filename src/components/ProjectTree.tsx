@@ -8,12 +8,14 @@ import { useAppLanguage } from "../context/LanguageContext";
 
 // Static image imports for the projects
 import projectAImage from "../public/images/project_header/project-a.png";
+import Tone_Canvas_Image from "../public/images/project_header/Tone_Canvas.jpg";
 import projectBImage from "../public/images/project_header/project-b.png";
 import projectCImage from "../public/images/project_header/project-c.png";
 import defaultImage from "../public/images/project_header/working.webp";
 
 // Mapping project names to images
 const projectImages: { [key: string]: StaticImageData } = {
+  "Tone_Canvas" : Tone_Canvas_Image,
   "project-a": projectAImage,
   "project-b": projectBImage,
   "project-c": projectCImage,
@@ -35,6 +37,7 @@ const projectImages: { [key: string]: StaticImageData } = {
 
 // Expanding the projects list
 const projects = [
+  { name: "Tone_Canvas" },
   { name: "project-a" },
   { name: "project-b" },
   { name: "project-c" },

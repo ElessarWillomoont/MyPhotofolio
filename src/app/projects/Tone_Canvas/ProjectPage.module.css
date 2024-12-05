@@ -1,0 +1,70 @@
+.projectPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  color: var(--foreground);
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  background-color: steelblue;
+  padding: 24px 0;
+  color: white;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.skillTag {
+  background-color: #4caf50;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.content {
+  width: 80%;
+  max-width: 1200px;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.intro {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.section {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
