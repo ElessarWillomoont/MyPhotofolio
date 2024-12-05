@@ -6,7 +6,6 @@ import NavBar from "../../../components/NavBar"; // Navigation Bar
 import styles from "./ProjectPage.module.css"; // CSS module
 import LanguageSelector from '../../../components/LanguageSelector';
 
-
 const ToneCanvasPage: React.FC = () => {
   const { getTranslations } = useAppLanguage();
 
@@ -14,19 +13,17 @@ const ToneCanvasPage: React.FC = () => {
   const defaultTranslations: any = useMemo(() => ({
     title: "Tone Canvas: An Interactive Learning Tool",
     description: "Learning tones and intonation is both crucial and challenging for language learners.",
-    sections: {
-      contextAndBackground: {
-        title: "Context and Background",
-        content: "The study of tones and intonation plays a critical role in language learning. Tone Canvas combines multimodal learning theories with interactive tools to reduce cognitive load and improve language acquisition outcomes.",
-      },
-      problemStatement: {
-        title: "Problem Statement and Motivation",
-        content: "This project addresses challenges in tone learning by applying cognitive load theory and multimodal input techniques, including visual guides, auditory feedback, and gesture-based interactions.",
-      },
-      contribution: {
-        title: "My Contribution",
-        content: "My main contribution to this project is building a robust cross-platform system architecture that supports interactive, multimodal learning. This includes the development of gesture-based input handling, real-time visual feedback, and device compatibility.",
-      },
+    contextAndBackground: {
+      title: "Context and Background",
+      content: "The study of tones and intonation plays a critical role in language learning. Tone Canvas combines multimodal learning theories with interactive tools to reduce cognitive load and improve language acquisition outcomes.",
+    },
+    problemStatement: {
+      title: "Problem Statement and Motivation",
+      content: "This project addresses challenges in tone learning by applying cognitive load theory and multimodal input techniques, including visual guides, auditory feedback, and gesture-based interactions.",
+    },
+    contribution: {
+      title: "My Contribution",
+      content: "My main contribution to this project is building a robust cross-platform system architecture that supports interactive, multimodal learning. This includes the development of gesture-based input handling, real-time visual feedback, and device compatibility.",
     },
     skills: ["React", "Next.js", "TypeScript", "Multimodal Interaction"],
   }), []);
@@ -53,7 +50,7 @@ const ToneCanvasPage: React.FC = () => {
   return (
     <div className={styles.projectPage}>
       <NavBar />
-      <LanguageSelector /> 
+      <LanguageSelector />
       <header className={styles.header}>
         <h1>{translations.title}</h1>
         <div className={styles.skills}>
@@ -67,18 +64,27 @@ const ToneCanvasPage: React.FC = () => {
             <p>Skills data is missing or invalid.</p> // Handle missing or invalid skills
           )}
         </div>
-
       </header>
       <main className={styles.content}>
         <section className={styles.intro}>
           <p>{translations.description}</p>
         </section>
-        {Object.entries(translations.sections).map(([key, section]: [string, any]) => (
-          <section key={key} className={styles.section}>
-            <h2>{section.title}</h2>
-            <p>{section.content}</p>
-          </section>
-        ))}
+        
+        {/* Updated sections rendering */}
+        <section className={styles.section}>
+          <h2>{translations.contextAndBackground.title}</h2>
+          <p>{translations.contextAndBackground.content}</p>
+        </section>
+        
+        <section className={styles.section}>
+          <h2>{translations.problemStatement.title}</h2>
+          <p>{translations.problemStatement.content}</p>
+        </section>
+        
+        <section className={styles.section}>
+          <h2>{translations.contribution.title}</h2>
+          <p>{translations.contribution.content}</p>
+        </section>
       </main>
     </div>
   );
