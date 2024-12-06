@@ -1,70 +1,138 @@
 .projectPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-  font-family: Arial, sans-serif;
-  color: var(--foreground);
-  background-color: var(--background);
-  min-height: 100vh;
+  display: flex; /* 使用 Flexbox 布局 */
+  flex-direction: column; /* 子元素按列排列 */
+  align-items: center; /* 子元素水平居中 */
+  padding: 16px; /* 页面内部四周的内边距 */
+  font-family: Arial, sans-serif; /* 全局字体样式 */
+  color: var(--foreground); /* 文字颜色，使用 CSS 变量 */
+  background-color: var(--background); 
+  min-height: 100vh; /* 最小高度为视口高度 */
+  position: relative; /* 确保子元素（如 avatarContainer）可以进行绝对定位 */
 }
 
+/* Hero Section Styles */
+.heroSection {
+  position: relative; /* 确保内部绝对定位有效 */
+  width: 100%; /* 宽度占满父容器 */
+  height: 30vh; /* 高度设置为视口高度的 30% */
+  background-color: #f0f0f0;
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.backgroundImage {
+  width: 100%; /* 背景图片宽度占满容器 */
+  height: 100%; /* 背景图片高度占满容器 */
+  object-fit: cover; /* 保持图片比例，同时填充容器 */
+  position: absolute; /* 绝对定位 */
+}
+
+/* Move Avatar to Bottom of Hero Section */
+.avatarContainer {
+  position: absolute; /* 绝对定位，方便控制具体位置 */
+  top: 30vh; /* 距顶部 30% 视口高度 */
+  left: 20%; /* 距左侧 20% */
+  transform: translate(-50%, -50%); /* 使头像中心点与设定位置对齐 */
+  width: 120px; /* 头像宽度 */
+  height: 120px; /* 头像高度 */
+  overflow: hidden; /* 超出容器部分隐藏 */
+  border: 3px solid var(--background); /* 头像边框颜色，使用 CSS 变量 */
+  background-color: white; /* 头像容器背景颜色 */
+  z-index: 2; /* 确保头像在其他元素之上 */
+}
+
+.avatar {
+  width: 100%; /* 头像图片宽度与容器一致 */
+  height: 100%; /* 头像图片高度与容器一致 */
+  object-fit: cover; /* 头像图片自适应，保持宽高比例 */
+}
+
+/* Header Styles */
 .header {
-  width: 100%;
-  text-align: center;
-  background-color: steelblue;
-  padding: 24px 0;
-  color: white;
+  text-align: center; /* 标题文字居中 */
+  margin-top: 60px; /* 标题与上方的间距 */
 }
 
 .header h1 {
-  font-size: 2rem;
-  margin-bottom: 16px;
+  font-size: 1.8rem; /* 标题字体大小 */
+  margin-bottom: 16px; /* 标题与下方元素的间距 */
 }
 
 .skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 8px;
+  display: flex; /* 使用 Flexbox 布局 */
+  flex-wrap: wrap; /* 标签允许换行 */
+  gap: 8px; /* 标签之间的间距 */
+  justify-content: center; /* 标签在容器内居中排列 */
+  margin-top: 8px; /* 标签组与标题之间的间距 */
 }
 
 .skillTag {
-  background-color: #4caf50;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  background-color: #4caf50; /* 标签背景颜色 */
+  color: white; /* 标签文字颜色 */
+  padding: 4px 12px; /* 标签内边距 */
+  border-radius: 16px; /* 标签圆角 */
+  font-size: 0.9rem; /* 标签文字大小 */
+  font-weight: bold; /* 标签文字加粗 */
 }
 
+/* Content and Section Styles */
 .content {
-  width: 80%;
-  max-width: 1200px;
-  margin: 24px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  width: 80%; /* 内容宽度占父容器 80% */
+  max-width: 1200px; /* 最大宽度限制为 1200px */
+  margin: 24px auto; /* 上下外边距为 24px，左右居中 */
+  display: flex; /* 使用 Flexbox 布局 */
+  flex-direction: column; /* 子元素按列排列 */
+  gap: 24px; /* 子元素之间的间距 */
 }
 
 .intro {
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1.2rem; /* 简介文字大小 */
+  text-align: center; /* 简介文字居中 */
 }
 
 .section {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 16px;
-  border-radius: 8px;
+  padding: 16px; /* 内边距 */
+  border-radius: 8px; /* 圆角 */
 }
 
 .section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
+  font-size: 1.5rem; /* 小标题字体大小 */
+  margin-bottom: 12px; /* 小标题与下方内容的间距 */
 }
 
 .section p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1rem; /* 段落文字大小 */
+  line-height: 1.6; /* 行高，增加可读性 */
+}
+
+/* Responsive Design */
+@media (max-width: 700px) { /* 针对屏幕宽度小于 700px 的样式 */
+  .heroSection {
+    height: 200px; /* 缩小 heroSection 高度 */
+  }
+
+  .avatarContainer {
+    width: 100px; /* 缩小头像宽度 */
+    height: 100px; /* 缩小头像高度 */
+    top: 30vh; /* 调整头像位置，距离顶部 25% 视口高度 */
+    left: 50%; /* 居中 */
+  }
+
+  .header h1 {
+    font-size: 1.5rem; /* 缩小标题字体大小 */
+    margin-top: 70px; /* 增加标题与顶部间距 */
+  }
+
+  .skills {
+    flex-direction: column; /* 标签组改为竖直排列 */
+    align-items: center; /* 标签组居中对齐 */
+  }
+
+  .skillTag {
+    font-size: 0.8rem; /* 缩小标签文字大小 */
+    padding: 3px 10px; /* 缩小标签内边距 */
+  }
+
+  .content {
+    width: 90%; /* 内容宽度占父容器 90% */
+  }
 }

@@ -9,6 +9,7 @@
     font-size: 16px; /* Font size */
     background-color: transparent; /* Transparent background */
     border: none; /* Remove border */
+    text-shadow: 0 0 1px rgba(173, 216, 230, 1), 0 0 16px rgba(173, 216, 230, 0.9); /* Powder blue shadow effect */
 }
 
 .divider {
