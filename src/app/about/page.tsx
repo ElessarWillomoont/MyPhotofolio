@@ -8,13 +8,14 @@ import NavBar from "../../components/NavBar";
 import ButtonGroup from "../../components/ButtonGroup"; // Import ButtonGroup component
 import svgLinkedIn from "../../public/icons/linkedin.svg"
 import svgGithub from "../../public/icons/github.svg"
+import svgMail from "../../public/icons/邮件.svg"
 
 const AboutPage: React.FC = () => {
     const { language, getTranslations } = useAppLanguage();
 
     const defaultTranslations = useMemo<any>(() => ({
         selfIntroduction: "I'm a fifth-year ESILV engineering student focused on AI and cognitive science.",
-        contact: "Email: yedong.wu@edu.devinci.fr / LinkedIn: https://linkedin.com/in/yedong-wu",
+        contact: "see button of page",
         timeline: [
             {
                 year: "2016",
@@ -47,6 +48,7 @@ const AboutPage: React.FC = () => {
 
 
     const buttons = [
+        { svg: svgMail, link: "mailto:candle1998@pm.me" },
         { svg: svgLinkedIn, link: "https://github.com/ElessarWillomoont" },
         { svg: svgGithub, link: "https://www.linkedin.com/in/yedong-wu-aa8b7a2a9/" },
       ];
@@ -124,7 +126,7 @@ const AboutPage: React.FC = () => {
                     )}
             </div>
             <footer className={styles.footer}>
-                <ButtonGroup buttons={buttons} maxButtonsPerRow={2} buttonSize="60px" />
+                <ButtonGroup buttons={buttons} maxButtonsPerRow={3} buttonSize="60px" />
             </footer>
         </div>
 );

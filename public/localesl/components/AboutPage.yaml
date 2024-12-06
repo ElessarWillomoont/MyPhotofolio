@@ -1,8 +1,7 @@
 ﻿en:
   selfIntroduction: "I'm a fifth-year ESILV engineering student focused on AI and cognitive science."
-  contact: |
-    Email: yedong.wu@edu.devinci.fr
-    LinkedIn: https://linkedin.com/in/yedong-wu
+  contact: 
+    see button of page
   timeline:
     - year: "2016"
       title: "Entered Shanghai Institute of Technology"
@@ -28,9 +27,8 @@
 
 zh:
   selfIntroduction: "我是ESILV五年级的工程学生，专注于人工智能与认知科学。"
-  contact: |
-    邮箱: yedong.wu@edu.devinci.fr
-    领英: https://linkedin.com/in/yedong-wu
+  contact: 
+    见页面底部
   timeline:
     - year: "2016"
       title: "进入上海应用技术大学"
@@ -56,9 +54,8 @@ zh:
 
 fr:
   selfIntroduction: "Je suis étudiant en cinquième année à ESILV, spécialisé en IA et sciences cognitives."
-  contact: |
-    Email : yedong.wu@edu.devinci.fr
-    LinkedIn : https://linkedin.com/in/yedong-wu
+  contact: 
+    Voir en bas de la page.
   timeline:
     - year: "2016"
       title: "Entré à l'Institut de Technologie de Shanghai"
