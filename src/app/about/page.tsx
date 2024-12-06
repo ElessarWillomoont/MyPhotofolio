@@ -5,6 +5,9 @@ import { useAppLanguage } from "../../context/LanguageContext";
 import styles from "./AboutPage.module.css";
 import LanguageSelector from "../../components/LanguageSelector";
 import NavBar from "../../components/NavBar";
+import ButtonGroup from "../../components/ButtonGroup"; // Import ButtonGroup component
+import svgLinkedIn from "../../public/icons/linkedin.svg"
+import svgGithub from "../../public/icons/github.svg"
 
 const AboutPage: React.FC = () => {
     const { language, getTranslations } = useAppLanguage();
@@ -40,6 +43,13 @@ const AboutPage: React.FC = () => {
             },
         ],
     }), []);
+
+
+
+    const buttons = [
+        { svg: svgLinkedIn, link: "https://github.com/ElessarWillomoont" },
+        { svg: svgGithub, link: "https://www.linkedin.com/in/yedong-wu-aa8b7a2a9/" },
+      ];
 
     const [translations, setTranslations] = useState(defaultTranslations);
 
@@ -113,8 +123,11 @@ const AboutPage: React.FC = () => {
                         }
                     )}
             </div>
+            <footer className={styles.footer}>
+                <ButtonGroup buttons={buttons} maxButtonsPerRow={2} buttonSize="60px" />
+            </footer>
         </div>
-    );
+);
 };
 
 export default AboutPage;
