@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useAppLanguage } from "../../../context/LanguageContext"; // Context for translations
 import NavBar from "../../../components/NavBar"; // Navigation Bar
 import styles from "./ProjectPage.module.css"; // CSS module
-import LanguageSelector from '../../../components/LanguageSelector';
+import LanguageSelector from "../../../components/LanguageSelector";
 import Image from "next/image"; // Import the Next.js Image component
 
 // Import images
@@ -35,7 +35,6 @@ const ToneCanvasPage: React.FC = () => {
     },
   }), []);
 
-  // UseState with `any` type to bypass type checks
   const [translations, setTranslations] = useState<any>(defaultTranslations);
 
   useEffect(() => {
@@ -44,39 +43,32 @@ const ToneCanvasPage: React.FC = () => {
         "/pages/projects/tone_canvas",
         defaultTranslations
       );
-      console.log("Loaded translations:", loadedTranslations); // Log the loaded translations
       setTranslations(loadedTranslations);
     };
     loadTranslations();
   }, [getTranslations, defaultTranslations]);
 
-  useEffect(() => {
-    console.log("Current translations:", translations); // Log the current translations on every update
-  }, [translations]);
-
   return (
     <div className={styles.projectPage}>
       <NavBar />
       <LanguageSelector />
-      {/* Hero Section with Background */}
       <div className={styles.heroSection}>
         <Image
           src={backgroundImg}
           alt="Background"
           className={styles.backgroundImage}
-          layout="fill" // Ensures the image fills the container
-          objectFit="cover" // Ensures the image maintains aspect ratio
-          priority // Ensures the image loads as a high-priority resource
+          layout="fill"
+          objectFit="cover"
+          priority
         />
       </div>
-      {/* Avatar Container moved outside heroSection */}
       <div className={styles.avatarContainer}>
         <Image
           src={avatarImg}
           alt="Avatar"
           className={styles.avatar}
-          width={120} // Avatar width
-          height={120} // Avatar height
+          width={120}
+          height={120}
         />
       </div>
       <header className={styles.header}>
@@ -89,15 +81,32 @@ const ToneCanvasPage: React.FC = () => {
               </span>
             ))
           ) : (
-            <p>Skills data is missing or invalid.</p> // Handle missing or invalid skills
+            <p>Skills data is missing or invalid.</p>
           )}
         </div>
       </header>
+      <div className={styles.projectContent}>
+          {/* Example of displaying YouTube video */}
+          <iframe
+            className={styles.mediaContent}
+            src="https://www.youtube.com/embed/qVom-iq-W1A"
+            title="Tone Canvas"
+            allowFullScreen
+          ></iframe>
+          {/* Example of displaying a static image */}
+          {/* Uncomment the next block to test static images */}
+          {/* <Image
+            src={backgroundImg}
+            alt="Project Content"
+            className={styles.mediaContent}
+            layout="responsive"
+            objectFit="contain"
+          /> */}
+        </div>
       <main className={styles.content}>
         <section className={styles.intro}>
           <p>{translations.description}</p>
         </section>
-
         <section className={styles.section}>
           <h2>{translations.contextAndBackground.title}</h2>
           <p>{translations.contextAndBackground.content}</p>

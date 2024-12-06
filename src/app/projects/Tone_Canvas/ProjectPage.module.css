@@ -109,6 +109,18 @@
   line-height: 1.6; /* 行高，增加可读性 */
 }
 
+.projectContent {
+  width: 100%; /* 与文字内容一致的宽度 */
+  max-width: 1200px; /* 限制最大宽度，与 .content 一致 */
+  margin: 16px auto; /* 上下间距为16px，左右居中 */
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.mediaContent {
+  width: 100%; /* 媒体宽度占满父容器 */
+  aspect-ratio: 16/9;
+  border: none; /* 移除 iframe 边框 */
+}
 /* Responsive Design */
 @media (max-width: 700px) { /* 针对屏幕宽度小于 700px 的样式 */
   .heroSection {
@@ -141,3 +153,10 @@
     width: 90%; /* 内容宽度占父容器 90% */
   }
 }
+
+/* @media (max-width: 700px) {
+  .projectContent {
+    width: 100%;
+    margin-top: 16px;
+  }
+} */
