@@ -8,7 +8,7 @@ import LanguageSelector from '../../../components/LanguageSelector';
 import Image from "next/image"; // Import the Next.js Image component
 
 // Import images
-import backgroundImg from "../../../public/images/project_header/Tone_Canvas.jpg";
+import backgroundImg from "../../../public/images/projects/Tone_canvas.jpg";
 import avatarImg from "../../../public/images/project_header/Tone_Canvas.jpg";
 
 const ToneCanvasPage: React.FC = () => {

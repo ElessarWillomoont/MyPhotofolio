@@ -4,8 +4,12 @@
   align-items: center; /* 子元素水平居中 */
   padding: 16px; /* 页面内部四周的内边距 */
   font-family: Arial, sans-serif; /* 全局字体样式 */
-  color: var(--foreground); /* 文字颜色，使用 CSS 变量 */
-  background-color: var(--background); 
+  /* color: var(--foreground); 文字颜色，使用 CSS 变量 */
+  color: white; /* 文字颜色，使用 CSS 变量 */
+  font-weight: bold;
+  /* background-color: var(--background);  */
+
+  background-color: powderblue; 
   min-height: 100vh; /* 最小高度为视口高度 */
   position: relative; /* 确保子元素（如 avatarContainer）可以进行绝对定位 */
 }
@@ -35,7 +39,8 @@
   width: 120px; /* 头像宽度 */
   height: 120px; /* 头像高度 */
   overflow: hidden; /* 超出容器部分隐藏 */
-  border: 3px solid var(--background); /* 头像边框颜色，使用 CSS 变量 */
+  /* border: 3px solid var(--background); 头像边框颜色，使用 CSS 变量 */
+  border: 3px powderblue;
   background-color: white; /* 头像容器背景颜色 */
   z-index: 2; /* 确保头像在其他元素之上 */
 }
@@ -66,7 +71,7 @@
 }
 
 .skillTag {
-  background-color: #4caf50; /* 标签背景颜色 */
+  background-color: #98ff98; /* 标签背景颜色 */
   color: white; /* 标签文字颜色 */
   padding: 4px 12px; /* 标签内边距 */
   border-radius: 16px; /* 标签圆角 */
@@ -113,7 +118,7 @@
   .avatarContainer {
     width: 100px; /* 缩小头像宽度 */
     height: 100px; /* 缩小头像高度 */
-    top: 30vh; /* 调整头像位置，距离顶部 25% 视口高度 */
+    top: 20vh; /* 调整头像位置，距离顶部 25% 视口高度 */
     left: 50%; /* 居中 */
   }
 
